@@ -72,5 +72,13 @@
 
 # What will Fusion Phaser cost ? 
 
+We hope to be able to price as follows 
+
+Fusion Phaser $150
+
+Fusion Phaser Pro $175
+
+Fusion Phaser Elite $200
+
 
      
