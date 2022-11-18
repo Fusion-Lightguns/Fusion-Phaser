@@ -58,4 +58,12 @@
 
            https://github.com/Fusion-Phasers/Fusion-Phaser/tree/main/Fusion-Phaser
 
+# Current planned attachments
+
+     - Foregrip 
+     
+     - Top mounted scope 
+     
+     - Stock 
+     
      
