@@ -15,3 +15,8 @@
 - Custom wood burned name/id plate
 
 - Foregrip and attachments included.
+
+
+
+# If you made a DIY Fusion Phaser and added solenoid please refer to this version.
+
