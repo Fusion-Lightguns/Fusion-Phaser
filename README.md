@@ -18,8 +18,8 @@
 
      - Assembled/made & coded in USA.
 
-     - 3 different versions of lightgun. 
-          Fusion Phaser, Fusion Phaser Pro & Fusion Phaser Elite.
+     - 4 different versions of lightgun. 
+        Fusion Mote,  Fusion Phaser, Fusion Phaser Pro & Fusion Phaser Elite.
 
      - DIY instructions .
 
@@ -40,6 +40,14 @@
      - Figuring out which microprocessor to use if not kit.
 
 # What do different types mean ?
+
+     - Fusion Mote
+        
+          - A modified Wii Mote and Dolphin Bar setup.
+          
+          - Cutom printed gun or parts added to made gun
+          
+          - Rechargeable battery pack with a plug in on bottom.
 
      - Fusion Phaser Includes 
 
