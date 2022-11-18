@@ -66,10 +66,4 @@
          - Foregrip and all accessories included
 
 
-# Where can I buy a Fusion Phaser? 
-
-     - Currently not for sale. Still in the works .
-
-
-
      
