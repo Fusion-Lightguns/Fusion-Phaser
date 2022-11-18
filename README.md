@@ -43,18 +43,18 @@
 
      - Fusion Mote
         
-           - https://github.com/Fusion-Phasers/Fusion-Phaser/tree/main/Fusion-Mote
+           https://github.com/Fusion-Phasers/Fusion-Phaser/tree/main/Fusion-Mote
 
-     - Fusion Phaser Includes 
+     - Fusion Phaser
     
-           - https://github.com/Fusion-Phasers/Fusion-Phaser/tree/main/Fusion-Phaser
+           https://github.com/Fusion-Phasers/Fusion-Phaser/tree/main/Fusion-Phaser
            
-     - Fusion Phaser Pro Includes 
+     - Fusion Phaser Pro
 
-           - https://github.com/Fusion-Phasers/Fusion-Phaser/tree/main/Fusion-Phaser-Pro
+           https://github.com/Fusion-Phasers/Fusion-Phaser/tree/main/Fusion-Phaser-Pro
 
-     - Fusion Phaser Elite Includes 
+     - Fusion Phaser Elite
 
-           - https://github.com/Fusion-Phasers/Fusion-Phaser/tree/main/Fusion-Phaser
+           https://github.com/Fusion-Phasers/Fusion-Phaser/tree/main/Fusion-Phaser
 
      
