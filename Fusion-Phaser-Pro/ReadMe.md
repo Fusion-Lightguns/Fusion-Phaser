@@ -12,5 +12,4 @@
 
 - Soleniod for recoil
 
-- Custom wood burned name/id plate
-
+# If you made a DIY Fusion Phaser & added solenoid please refer to this version.
