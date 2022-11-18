@@ -35,9 +35,10 @@
 
      - Purchased a DIY kit to see if using them is feasible .
 
-     - Started to code a Teensy LC to act like Arduino .
+     - Started to code a Teensy LC to act like mouse & keyboard.
 
      - Figuring out which microprocessor to use if not kit.
+     
 
 # What do different types mean ?
 
