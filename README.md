@@ -67,3 +67,19 @@
      - Stock 
      
      
+# Planned Button Mapping
+
+     On The Lightgun---------------Keyboard button
+     
+     - Trigger ----------------------Mouse 1
+
+     - Left side of gun button ------Mouse 2
+     
+     - Right side of gun button -----Mouse 3
+     
+     - Back left button -------------left alt
+     
+     - Back right button ------------left control
+     
+     - Dpad/joystick ----------------Up,Down,Left, Right
+          
