@@ -43,35 +43,18 @@
 
      - Fusion Mote
         
-          - A modified Wii Mote and Dolphin Bar setup.
-          
-          - Cutom printed gun or parts added to made gun
-          
-          - Rechargeable battery pack with a plug in on bottom.
+           - https://github.com/Fusion-Phasers/Fusion-Phaser/tree/main/Fusion-Mote
 
      - Fusion Phaser Includes 
-
-         - Lightgun & IR LED setup.
-
-         - Vibration motor 
-
-         - Power LED 
-
-         - Trigger LED (flashes when you pull trigger)
-
+    
+           - https://github.com/Fusion-Phasers/Fusion-Phaser/tree/main/Fusion-Phaser
+           
      - Fusion Phaser Pro Includes 
 
-         - Everything from Fusion Phaser. 
-
-         - Solenoid. (For arcade feel) 
-
-         - "Name Plate" Whatever laser burnt on wood and mounted on gun.
+           - https://github.com/Fusion-Phasers/Fusion-Phaser/tree/main/Fusion-Phaser-Pro
 
      - Fusion Phaser Elite Includes 
 
-         - Everything from Fusion Phaser and Fusion Phaser Pro.
-
-         - Foregrip and all accessories included
-
+           - https://github.com/Fusion-Phasers/Fusion-Phaser/tree/main/Fusion-Phaser
 
      
