@@ -1,6 +1,6 @@
 # Whats this ? 
 
-     A Arduino/Arduino clone Light gun.
+     A Arduino/micrprocessor Infared Light gun.
 
 # What operating systems Fusion Phaser work on?
 
