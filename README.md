@@ -1,6 +1,6 @@
 # Whats this ? 
 
-     A Arduino/micrprocessor Infared Light gun.
+     A Pi Pico Infared Light gun.
 
 # What operating systems Fusion Phaser work on?
 
@@ -19,6 +19,7 @@
      - Assembled/made & coded in USA.
 
      - 4 different versions of lightgun. 
+     
         Fusion Mote,  Fusion Phaser, Fusion Phaser Pro & Fusion Phaser Elite.
 
      - DIY instructions .
@@ -37,7 +38,7 @@
 
      - Started to code a Teensy LC to act like mouse & keyboard.
 
-     - Figuring out which microprocessor to use if not kit.
+     - Figured out gonan use a Pi Pico.
      
 
 # What do different types mean ?
