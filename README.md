@@ -10,7 +10,7 @@
 
      - Fusion Phaser is a custom designed gun.
     
-     - More buttons that most. Will have a dpad/joystick & 5 buttons, including trigger .
+     - More buttons than most. Will have a dpad/joystick & 5 buttons, including trigger .
 
      - Open source codes and designs. Wanna build yourself do it lol .
 
@@ -18,9 +18,9 @@
 
      - Assembled/made & coded in USA.
 
-     - 4 different versions of lightgun. 
+     - 3 different versions of lightgun. 
      
-        Fusion Mote,  Fusion Phaser, Fusion Phaser Pro & Fusion Phaser Elite.
+        Fusion Phaser, Fusion Phaser Pro & Fusion Phaser Elite.
 
      - DIY instructions .
 
