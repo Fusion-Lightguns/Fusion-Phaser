@@ -56,7 +56,7 @@
 
      - Fusion Phaser Elite
 
-           https://github.com/Fusion-Phasers/Fusion-Phaser/tree/main/Fusion-Phaser
+           https://github.com/Fusion-Phasers/Fusion-Phaser/tree/main/Fusion-Phaser-Elite
 
 # Current planned attachments
 
