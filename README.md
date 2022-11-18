@@ -18,7 +18,7 @@
 
      - Assembled/made & coded in USA.
 
-     - 4 different versions of lightgun. 
+     - 3 different versions of lightgun. 
           Fusion Phaser, Fusion Phaser Pro & Fusion Phaser Elite.
 
      - DIY instructions .
@@ -70,15 +70,6 @@
 
      - Currently not for sale. Still in the works .
 
-# What will Fusion Phaser cost ? 
-
-We hope to be able to price as follows 
-
-Fusion Phaser $150
-
-Fusion Phaser Pro $175
-
-Fusion Phaser Elite $200
 
 
      
