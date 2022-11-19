@@ -105,9 +105,9 @@
           
           If you wanna donate $$. ATM I dont have anything setup to accept monetary donations.
           
-     - Why though? Thiers alread lightguns out thier.
+     - Why though? Thiers already lightguns out thier.
      
-          I dont like the limit of buttons and attachments on current choices.
+          I dont like the limit of buttons, attachments and designs on current choices.
           
     
           
