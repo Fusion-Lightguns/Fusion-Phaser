@@ -72,7 +72,7 @@
      - Stock 
      
      
-# Planned Button Mapping (All but Fusion Mote it is mapped already)
+# Planned Button Mapping
 
      On The Lightgun---------------Keyboard button
      
