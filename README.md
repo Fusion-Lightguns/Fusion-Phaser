@@ -38,7 +38,7 @@
 
      - Removable Foregrip and attachments .
 
-# How far along is this project ?
+# How far along is this project ? Updated 12/1/22
 
      - Named Fusion Phasers 
 
@@ -46,8 +46,15 @@
 
      - Decided to use a Pi Pico as "brains"
      
-     - About finished part 1 of for 3D printed gun case.
+     - Finished 3D design of sides of Lightgun
      
+     - Built a gun from DIY ki. It was as i epected mostly
+     
+     - Ordered all basic parts today. Will be begin testing when they arrive
+     
+     - Figured out almost everything needed
+     
+     - Started to build a kickstarter for Fusion Phaser 
 
 # What do different types mean ?
 
