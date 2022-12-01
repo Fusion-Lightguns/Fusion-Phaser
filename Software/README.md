@@ -1,1 +1,1 @@
-# This Directory contains siftware needed for Fusion Phaser
+# This Directory contains software needed for Fusion Phaser
