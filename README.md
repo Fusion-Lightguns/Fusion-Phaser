@@ -26,9 +26,9 @@
 
      - Assembled/made & coded in USA.
 
-     - 3 different versions of lightgun.
+     - 2 different versions of lightgun.
      
-        Fusion Phaser, Fusion Phaser Pro & Fusion Phaser Elite.
+        Fusion Phaser & Fusion Phaser Pro
 
      - DIY instructions .
 
