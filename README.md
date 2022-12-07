@@ -66,7 +66,7 @@
      
      - Switched on gun dpad to a wii nunchuck hookup. 
      
-     - Added buttons on each side . @ buttons on each side plus trigger = 5 buttona in total
+     - Added buttons on each side . 2 buttons on each side plus trigger = 5 buttona in total
           
           
 # Current planned attachments
