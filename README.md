@@ -16,7 +16,7 @@
 
      - Fusion Phaser is a custom designed gun.
     
-     - More buttons than most. Will have a dpad/joystick & 5 buttons, including trigger .
+     - More buttons than most. Will have 5 buttons, including trigger .
 
      - Open source codes and designs. Wanna build yourself do it lol .
      
@@ -31,6 +31,14 @@
         Fusion Phaser & Fusion Phaser Pro
 
      - DIY instructions .
+     
+     - Wii nun chuck hookup in Phaser Pro . So if you need a joystick and two more buttons .
+     
+     - Trigger pull and power LED on Pro Version
+     
+     - Power LED on Regular version.
+     
+     - In line power switch on both versions.
 
      - Setup scripts and code .
 
@@ -38,7 +46,7 @@
 
      - Removable Foregrip and attachments .
 
-# How far along is this project ? Updated 12/1/22
+# How far along is this project ? Updated 12/7/22
 
      - Named Fusion Phasers 
 
@@ -55,27 +63,16 @@
      - Figured out almost everything needed
      
      - Started to build a kickstarter for Fusion Phaser 
-
-# What do different types mean ?
-
-     - Fusion Phaser
-    
-           https://github.com/Fusion-Phasers/Fusion-Phaser/tree/main/Fusion-Phaser
-           
-     - Fusion Phaser Pro
-
-           https://github.com/Fusion-Phasers/Fusion-Phaser/tree/main/Fusion-Phaser-Pro
-
-     - Fusion Phaser Elite
-
-           https://github.com/Fusion-Phasers/Fusion-Phaser/tree/main/Fusion-Phaser-Elite
-
+     
+     - Switched on gun dpad to a wii nunchuck hookup. 
+     
+     - Added buttons on each side . @ buttons on each side plus trigger = 5 buttona in total
+          
+          
 # Current planned attachments
 
      - Foregrip 
-     
-     - Top mounted scope 
-     
+          
      - Stock 
      
      
@@ -85,16 +82,13 @@
      
      - Trigger ----------------------Mouse 1
 
-     - Left side of gun button ------Mouse 2
-     
-     - Right side of gun button -----Mouse 3
-     
-     - Back left button -------------left alt
-     
-     - Back right button ------------left control
-     
-     - Dpad/joystick ----------------Up,Down,Left, Right
-          
+     - Left side of gun button1 ------Mouse 2
+
+     - Left side of gun button2 ------Escape
+
+     - Right side of gun button1 -----Mouse 3
+
+     - Right side of gun button2 -----Enter
 
 # Freguently Asked Questions
 
