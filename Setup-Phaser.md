@@ -1,7 +1,8 @@
-# ---Fusion Phaser
-------------------------------------------------
+# Fusion Phaser Setup 
+# -------------------
+# Version 1.00
 
-# --LED Setup 
+# LED Setup 
 
 1. Unwrap LEDS and figure out wher e your gonna plug in 
 
