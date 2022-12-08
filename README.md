@@ -114,6 +114,10 @@
      
           I dont like the limit of buttons, attachments and designs on current choices.
           
+     - How do i set it up?
+     
+          Please See: https://github.com/Fusion-Lightguns/Fusion-Phaser/blob/main/Setup-Phaser.md
+          
     
           
           
