@@ -1,9 +1,9 @@
 
 # Offical Shell DIY instructions
 
-# Click "Build" Folder to build from bought parts
+Click "Build" Folder to build from bought parts
 
-# Click "Print" Folder to print then build parts.
+Click "Print" Folder to print then build parts.
 
 
-DIY Parts Link:
+# DIY Parts Link:
