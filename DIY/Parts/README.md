@@ -1,10 +1,11 @@
 Must Buy 
 
 Postioning Camera $25
-https://www.dfrobot.com/product-1088.html
 
+<a href="https://www.amazon.com/dp/B09YTW747X?pd_rd_i=B09YTW747X&pd_rd_w=9EIJL&content-id=amzn1.sym.88097cb9-5064-44ef-891b-abfacbc1c44b&pf_rd_p=88097cb9-5064-44ef-891b-abfacbc1c44b&pf_rd_r=WYF2B2SG661EB5Q3TYPB&pd_rd_wg=YOq14&pd_rd_r=23f70b32-b2fe-46f9-964e-a5fc58f225cc&s=industrial&sp_csd=d2lkZ2V0TmFtZT1zcF9kZXRhaWw&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUExNFpKTlgxUjFGSVdVJmVuY3J5cHRlZElkPUEwNzkxMTMzM0Y3QlZNM1Y0RlhNTCZlbmNyeXB0ZWRBZElkPUEwNjExMzAxM0NLRDlWQjU1MFBSNiZ3aWRnZXROYW1lPXNwX2RldGFpbCZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU&th=1&linkCode=li2&tag=retrodevils-20&linkId=d5ce7215b5d796b37f67356f977cdb31&language=en_US&ref_=as_li_ss_il" target="_blank"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B09YTW747X&Format=_SL160_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=retrodevils-20&language=en_US" ></a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=retrodevils-20&language=en_US&l=li2&o=1&a=B09YTW747X" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 
-Pi Pico $15
+Pi Pico $13
+
 <a href="https://www.amazon.com/Raspberry-Pre-Soldered-Microcontroller-Development-Dual-Core/dp/B08X7HN2VG?keywords=pi+pico&qid=1670516683&sr=8-9&linkCode=li2&tag=retrodevils-20&linkId=4f0e6370ec65f7acd6f9a776a12296b5&language=en_US&ref_=as_li_ss_il" target="_blank"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B08X7HN2VG&Format=_SL160_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=retrodevils-20&language=en_US" ></a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=retrodevils-20&language=en_US&l=li2&o=1&a=B08X7HN2VG" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 
 # Pi Pico Board $10
