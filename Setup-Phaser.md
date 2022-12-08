@@ -1,6 +1,9 @@
-# Fusion Phaser Setup 
 # -------------------
+# Fusion Phaser Setup 
 # Version 1.00
+# -------------------
+
+
 
 # LED Setup 
 
