@@ -1,7 +1,4 @@
-# -------------------
-# Fusion Phaser Setup 
-# Version 1.00
-# -------------------
+# Fusion Phaser Setup ------------------- Version 1.00
 
 
 
