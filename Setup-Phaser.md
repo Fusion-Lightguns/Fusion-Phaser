@@ -1,38 +1,57 @@
----Fusion Phaser
+# ---Fusion Phaser
 ------------------------------------------------
---LED Setup 
+
+# --LED Setup 
+
 1. Unwrap LEDS and figure out wher e your gonna plug in 
+
 2. Mount LEDS in a cross ponts shape. Top of TV in center, left of TV in center and so on.
+
 3. For further LED setup/calbration see Step 6 in Software Setup below
 
---Software Setup
+# --Software Setup
+
 1. Plug Gun into Pi/PC
 
 2. Extract Fusion-Lightguns.zip
 
 3. For quick calibration (maybe well see)
-- press calibration on gun
-- shoot the following spots on screen IN ORDER. 
-		Top Left, Top Right, Bottom Right, Bottom Left 
+
+- Press calibration on gun
+
+- Shoot Top Left Then Bottom Right
 
 4. Advanced Calibration
+
 - For windows follow 3a
+
 - For Linux use 3b
 
 4a. Windows
+
 - Plug in a keyboard
+
 - Plug in Fusion Phaser
+
 - Open \Fusion-Lightguns\Software\Fusion-Guns-Tool\Fusion-Guns-Tool.exe
+
 - Click on Calibrate 
+
 - Follow on screen instructions
 
 
 4b. Linux/Pi
+
 - Plug in a keyboard
+
 - Plug in Fusion Phaser
+
 - Install Wine to run windows program. Linux program work in progress
+
 - Open \Fusion-Lightguns\Software\Fusion-Guns-Tool\Fusion-Guns-Tool.exe
+
 - Click on Calibrate 
+
 - Follow on screen instructions
 
 5. Click Save Calibration
