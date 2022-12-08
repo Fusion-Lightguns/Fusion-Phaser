@@ -10,7 +10,7 @@
 
 3. For further LED setup/calbration see Step 6 in Software Setup below
 
-# --Software Setup
+# Software Setup
 
 1. Plug Gun into Pi/PC
 
