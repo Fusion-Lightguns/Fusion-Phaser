@@ -26,4 +26,4 @@ https://www.aliexpress.us/item/3256804336848130.html?spm=a2g0o.productlist.0.0.7
 
 # MicroUSB power supply with switch (optional)
 
-https://www.amazon.com/dp/B07RHNB7W9/ref=sspa_dk_detail_3?psc=1&pd_rd_i=B07RHNB7W9&pd_rd_w=ED6Nu&content-id=amzn1.sym.46bad5f6-1f0a-4167-9a8b-c8a82fa48a54&pf_rd_p=46bad5f6-1f0a-4167-9a8b-c8a82fa48a54&pf_rd_r=QZN7K3BVP6N748EP406V&pd_rd_wg=NeVS0&pd_rd_r=ce338f38-64ce-4341-8f13-eb1e38de85fd&s=pc&sp_csd=d2lkZ2V0TmFtZT1zcF9kZXRhaWw&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUFaUERNUENCQkxLQTkmZW5jcnlwdGVkSWQ9QTAxMzU5NzAzOVVMREVMMFRWTzAyJmVuY3J5cHRlZEFkSWQ9QTAzNDkxMTUzQk1aTFlKWDU1Sk9RJndpZGdldE5hbWU9c3BfZGV0YWlsJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ==
+https://amzn.to/3iOo7Ui
