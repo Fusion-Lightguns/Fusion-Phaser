@@ -8,9 +8,13 @@
      
 # All code and 3D printed files will be avaiable for free when complete.
 
-     - 3D printable file links will go here when complete.
+     - 3D printable Files (STL)
+               
+               https://github.com/Fusion-Lightguns/Fusion-Phaser/tree/main/DIY/Offical%20Shell/Print/STLs
      
-     - Pi Pico code links will go here when complete.
+     - Pi Pico Code
+     
+               https://github.com/Fusion-Lightguns/Fusion-Phaser/tree/main/DIY/Code
 
 # What's different than other Lightguns? 
 
