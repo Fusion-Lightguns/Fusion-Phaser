@@ -62,6 +62,8 @@ Update 12/2/22
      
      - Ordered all basic parts today. Will be begin testing when they arrive
      
+     - Decided to use Pi Pico as "Brains" 
+     
      - Figured out almost everything needed
      
 Update 12/10/22
