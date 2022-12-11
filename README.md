@@ -1,6 +1,6 @@
 # Whats this ? 
 
-     A open source Pi Pico Infared Light gun.
+     A open source Infared Light gun.
 
 # What operating systems Fusion Phaser work on?
 
@@ -12,7 +12,7 @@
                
                https://github.com/Fusion-Lightguns/Fusion-Phaser/tree/main/DIY/Offical%20Shell/Print/STLs
      
-     - Pi Pico Code
+     - Code
      
                https://github.com/Fusion-Lightguns/Fusion-Phaser/tree/main/DIY/Code
 
@@ -24,8 +24,6 @@
 
      - Open source codes and designs. Wanna build yourself do it lol .
      
-     - Its a lightgun for Pi(& windows) made from a Pi lol
-
      - Made by gamers for gamers.
 
      - Assembled/made & coded in USA.
@@ -50,13 +48,13 @@
 
      - Removable Foregrip and attachments .
 
-# How far along is this project ? Updated 12/7/22
+# How far along is this project ? 
+
+Update 12/2/22
 
      - Named Fusion Phasers 
 
      - Purchased a DIY kit to reverse engineer and learn.
-
-     - Decided to use a Pi Pico as "brains"
      
      - Finished 3D design of sides of Lightgun
      
@@ -66,12 +64,19 @@
      
      - Figured out almost everything needed
      
+Update 12/10/22
+
      - Started to build a kickstarter for Fusion Phaser 
      
      - Switched on gun dpad to a wii nunchuck hookup. 
      
      - Added buttons on each side . 2 buttons on each side plus trigger = 5 buttona in total
+     
+Update 12/10/22
+     
+          - I cant get Pico Pi to work in Arduino IDE. Porbably gonan switch to Arduino Pro 32u4
           
+          - Test gun is almost complete.
           
 # Current planned attachments
 
