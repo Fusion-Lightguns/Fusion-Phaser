@@ -2,14 +2,6 @@
 
 https://www.dfrobot.com/product-1088.html
 
-# Pi Pico $13
-
-https://amzn.to/3FANwK5
-
-# Pi Pico Breakout Board $10
-
-https://amzn.to/3W2WsO0
-
 # Vib Motors $2 a piece
 
 https://amzn.to/3P90VfL
@@ -27,3 +19,15 @@ https://www.aliexpress.us/item/3256804336848130.html?spm=a2g0o.productlist.0.0.7
 # MicroUSB power supply with switch (optional)
 
 https://amzn.to/3iOo7Ui
+
+
+Could no longer be needed.
+
+# Pi Pico $13
+
+https://amzn.to/3FANwK5
+
+# Pi Pico Breakout Board $10
+
+https://amzn.to/3W2WsO0
+
