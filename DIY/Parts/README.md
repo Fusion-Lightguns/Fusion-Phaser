@@ -20,9 +20,7 @@ https://www.aliexpress.us/item/3256804336848130.html?spm=a2g0o.productlist.0.0.7
 
 https://amzn.to/3iOo7Ui
 
-# WARNING 
-
-# Could no longer be needed.
+# WARNING Following Could no longer be needed.
 
 # Pi Pico $13
 
@@ -31,4 +29,8 @@ https://amzn.to/3FANwK5
 # Pi Pico Breakout Board $10
 
 https://amzn.to/3W2WsO0
+
+# If Pico isnt used it will be this board (Arduino Pro Micro)
+
+https://amzn.to/3iIQu6m
 
