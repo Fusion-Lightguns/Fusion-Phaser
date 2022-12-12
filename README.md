@@ -2,8 +2,6 @@
 
      A open source Infared Light gun. 
      
-     If you prefer fancy pdf : https://github.com/Fusion-Lightguns/Fusion-Phaser/blob/main/Fusion%20Lightguns.pdf
-
 # What operating systems Fusion Phaser work on?
 
      Linux & Windows 
