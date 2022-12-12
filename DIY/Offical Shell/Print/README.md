@@ -6,7 +6,9 @@ If using a samll printer use the Small STLs Folder
 
 If using a big printer use the Large STLs Folder
 
-Click Print-Tips.txt for further help
+Click Print-Tips.txt for further print help
+
+Click Post-Processing-Tips.txt for detailed after print help
 
 After Printing see below link for build instructions
   
