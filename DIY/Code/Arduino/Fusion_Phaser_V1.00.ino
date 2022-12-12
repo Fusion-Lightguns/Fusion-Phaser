@@ -2,14 +2,7 @@
  * @file Fusion_Phaser_V1.00.ino
  * @brief Sketch for Fusion Phaser V 1.00
  * @n INO file for Fusion Phaser Lightgun
- *
- * @copyright   Fusion Lightguns, https://github.com/Fusion-Lightguns/Fusion-Phaser/blob/main/LICENSE, 2022
- * @copyright   GNU Lesser General Public License
- *
- * @author [Fusion Lghtguns](fusionphasers@gmail.com)
- * @version  V1.0
- * @date  2022
- */
+*/
 
 #include <HID.h>                // Load libraries
 #include <Wire.h>
@@ -19,6 +12,7 @@
 #include <Phaser.h>
 #include <WiiChuck.h>
 
+Accessory nunchuck1;
 // Tigger is set to LEFT_MOUSE, A Button is set to RIGHT_MOUSE & B Button is set to MIDDLE_MOUSE 
        
 char _upKey = KEY_UP_ARROW;                
@@ -57,7 +51,7 @@ int _BPin = A0;
 int _startPin = A2; 
 int _selectPin = A3;               
 int _reloadPin = 13;
-int _pedalPin = 5;                       
+int _actionPin = 5;                       
 
 int buttonState1 = 0;           
 int lastButtonState1 = 0;
@@ -107,12 +101,16 @@ void setup() {
   pinMode(_startPin, INPUT_PULLUP);  
   pinMode(_selectPin, INPUT_PULLUP);
   pinMode(_reloadPin, INPUT_PULLUP);       
-  pinMode(_pedalPin, INPUT_PULLUP);
+  pinMode(_actionPin, INPUT_PULLUP);
 
   AbsMouse.move((res_x / 2), (res_y / 2));          // Set mouse position to centre of the screen
   
   delay(500);
-  
+
+	nunchuck1.begin();
+	if (nunchuck1.type == Unknown) {
+		nunchuck1.type = NUNCHUCK;
+	}
 }
 
 
@@ -126,6 +124,7 @@ void loop() {
     go();
 
   }
+  
 
   /* ------------------ START/PAUSE MOUSE ---------------------- */
 
@@ -200,13 +199,20 @@ void loop() {
 
   }
 
+
+/* --------------------------- NUN CHUCK ------------------------- */
+  Serial.println("-------------------------------------------");
+	nunchuck1.readData();    // Read inputs and update maps
+	nunchuck1.printInputs(); // Print all inputs
+	for (int i = 0; i < WII_VALUES_ARRAY_SIZE; i++) {
+		Serial.println(
+				"Controller Val " + String(i) + " = "
+						+ String((uint8_t) nunchuck1.values[i]));
+	}
+
 }
 
-
-/*        -----------------------------------------------        */
 /* --------------------------- METHODS ------------------------- */
-/*        -----------------------------------------------        */
-
 
 void getPosition() {    // Get tilt adjusted position from IR postioning camera
 
@@ -251,7 +257,7 @@ void mouseButtons() {    // Setup Left, Right & Middle Mouse buttons
   buttonState8 = digitalRead(_BPin);
   buttonState9 = digitalRead(_startPin);      
   buttonState10 = digitalRead(_selectPin); 
-  buttonState11 = digitalRead(_pedalPin); 
+  buttonState11 = digitalRead(_actionPin); 
   
   if (buttonState2 != lastButtonState2) {
     if (buttonState2 == LOW) {
@@ -438,3 +444,4 @@ void PrintResults() {    // Print results for debugging
   Serial.println(yCenter);
 
 }
+
