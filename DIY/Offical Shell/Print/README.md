@@ -2,6 +2,10 @@
 
 Click STLs Folder for STL files
 
+If using a samll printer use the Small STLs Folder
+
+If using a big printer use the Large STLs Folder
+
 Click Print-Tips.txt for further help
 
 After Printing see below link for build instructions
