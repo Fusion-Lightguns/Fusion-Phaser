@@ -4,6 +4,10 @@
 
     Inspiration, Base Code, and general awesomeness!
     
+    https://www.youtube.com/@samcorulz
+    
+    https://github.com/samuelballantyne/IR-Light-Gun
+    
 ---- DFRobot 
 
     IRamera and general tech stuff.
