@@ -16,13 +16,22 @@
  *  Step 8: Offset are now saved to EEPROM
 */
 
+/* 
+*
+* DESIGNED FOR ITSYBITSY 32U4 
+*
+* BASE CODE FROM SAMCO IR LIGHTGUN: https://github.com/samuelballantyne/IR-Light-Gun
+*
+* FUSION LIGHTGUN ADDITION/CHANGES: https://github.com/Fusion-Lightguns/Fusion-Phaser
+*/
+
 
 #include <HID.h>                // Load libraries
 #include <Wire.h>
 #include <Keyboard.h>
 #include <AbsMouse.h>
 #include <DFRobotIRPosition.h>
-#include <Phaser.h>
+#include <FusionPhaser.h>
 #include <EEPROM.h>
 
 int xCenter = 512;              // Open serial monitor and update these values to save calibration
@@ -87,7 +96,7 @@ int plus = 0;
 int minus = 0;
 
 DFRobotIRPosition myDFRobotIRPosition;
-SamcoBeta mySamco;
+FusionPhaser myFusionPhaser;
 
 int res_x = 1023;              // UPDATE: These values do not need to change
 int res_y = 768;               // UPDATE: These values do not need to change
@@ -165,7 +174,7 @@ void loop() {
     AbsMouse.move(conMoveXAxis, conMoveYAxis);
     getPosition();
 
-    MoveYAxis = map (finalY, (yCenter + ((mySamco.H() * (yOffset / 100)) / 2)), (yCenter - ((mySamco.H() * (yOffset / 100)) / 2)), 0, res_y);
+    MoveYAxis = map (finalY, (yCenter + ((myFusionPhaser.H() * (yOffset / 100)) / 2)), (yCenter - ((myFusionPhaser.H() * (yOffset / 100)) / 2)), 0, res_y);
     conMoveXAxis = res_x/2;
     conMoveYAxis = constrain (MoveYAxis, 0, res_y);
     
@@ -192,7 +201,7 @@ void loop() {
     AbsMouse.move(conMoveXAxis, conMoveYAxis);
     getPosition();
 
-    MoveXAxis = map (finalX, (xCenter + ((mySamco.H() * (xOffset / 100)) / 2)), (xCenter - ((mySamco.H() * (xOffset / 100)) / 2)), 0, res_x);
+    MoveXAxis = map (finalX, (xCenter + ((myFusionPhaser.H() * (xOffset / 100)) / 2)), (xCenter - ((myFusionPhaser.H() * (xOffset / 100)) / 2)), 0, res_x);
     conMoveXAxis = constrain (MoveXAxis, 0, res_x);
     conMoveYAxis = res_y/2;
     
@@ -233,8 +242,8 @@ void loop() {
     mouseButtons();
     getPosition();
 
-    MoveXAxis = map (finalX, (xCenter + ((mySamco.H() * (xOffset / 100)) / 2)), (xCenter - ((mySamco.H() * (xOffset / 100)) / 2)), 0, res_x);
-    MoveYAxis = map (finalY, (yCenter + ((mySamco.H() * (yOffset / 100)) / 2)), (yCenter - ((mySamco.H() * (yOffset / 100)) / 2)), 0, res_y);
+    MoveXAxis = map (finalX, (xCenter + ((myFusionPhaser.H() * (xOffset / 100)) / 2)), (xCenter - ((myFusionPhaser.H() * (xOffset / 100)) / 2)), 0, res_x);
+    MoveYAxis = map (finalY, (yCenter + ((myFusionPhaser.H() * (yOffset / 100)) / 2)), (yCenter - ((myFusionPhaser.H() * (yOffset / 100)) / 2)), 0, res_y);
     conMoveXAxis = constrain (MoveXAxis, 0, res_x);
     conMoveYAxis = constrain (MoveYAxis, 0, res_y);
     
@@ -255,9 +264,9 @@ void getPosition() {    // Get tilt adjusted position from IR postioning camera
 
 myDFRobotIRPosition.requestPosition();
     if (myDFRobotIRPosition.available()) {
-    mySamco.begin(myDFRobotIRPosition.readX(0), myDFRobotIRPosition.readY(0), myDFRobotIRPosition.readX(1), myDFRobotIRPosition.readY(1),myDFRobotIRPosition.readX(2), myDFRobotIRPosition.readY(2),myDFRobotIRPosition.readX(3), myDFRobotIRPosition.readY(3), xCenter, yCenter);
-    finalX = mySamco.X();
-    finalY = mySamco.Y();
+    myFusionPhaser.begin(myDFRobotIRPosition.readX(0), myDFRobotIRPosition.readY(0), myDFRobotIRPosition.readX(1), myDFRobotIRPosition.readY(1),myDFRobotIRPosition.readX(2), myDFRobotIRPosition.readY(2),myDFRobotIRPosition.readX(3), myDFRobotIRPosition.readY(3), xCenter, yCenter);
+    finalX = myFusionPhaser.X();
+    finalY = myFusionPhaser.Y();
     }
     else {
     Serial.println("Device not available!");
