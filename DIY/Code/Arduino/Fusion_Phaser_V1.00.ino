@@ -57,7 +57,7 @@ int conMoveYAxis;
 
 int count = -2;                   // Set intial count
 
-int _tiggerPin = 7;               // Label Pin to buttons
+int _triggerPin = 7;               // Label Pin to buttons
 int _upPin = 11;                
 int _downPin = 9;              
 int _leftPin = 10;             
@@ -65,7 +65,8 @@ int _rightPin = 12;
 int _APin = A1;                
 int _BPin = A0;              
 int _startPin = A2; 
-int _selectPin = A3;               
+int _selectPin = A3; 
+int _motorPin = 3;
 int _reloadPin = 13;
 int _pedalPin = 5;                //NOTE: Pedal needs to connected to pin 4 on 3V boards  
 
@@ -90,10 +91,12 @@ int lastButtonState9 = 0;
 int buttonState10 = 0;
 int lastButtonState10 = 0; 
 int buttonState11 = 0;
-int lastButtonState11 = 0; 
+int lastButtonState11 = 0;
+int buttonState12 = 0; 
 
 int plus = 0;         
 int minus = 0;
+
 
 DFRobotIRPosition myDFRobotIRPosition;
 FusionPhaser myFusionPhaser;
@@ -112,7 +115,7 @@ void setup() {
     
   AbsMouse.init(res_x, res_y);            
 
-  pinMode(_tiggerPin, INPUT_PULLUP);         // Set pin modes
+  pinMode(_triggerPin, INPUT_PULLUP);         // Set pin modes
   pinMode(_upPin, INPUT_PULLUP);
   pinMode(_downPin, INPUT_PULLUP);
   pinMode(_leftPin, INPUT_PULLUP);
@@ -123,6 +126,7 @@ void setup() {
   pinMode(_selectPin, INPUT_PULLUP);
   pinMode(_reloadPin, INPUT_PULLUP);       
   pinMode(_pedalPin, INPUT_PULLUP);
+  pinMode(_motorPin, OUTPUT);
 
   AbsMouse.move((res_x / 2), (res_y / 2));          // Set mouse position to centre of the screen
   
@@ -132,6 +136,10 @@ void setup() {
 
 
 void loop() {
+  digitalWrite(_motorPin, HIGH); //vibrate
+  delay(1000);  // delay one second
+  digitalWrite(_motorPin, LOW);  //stop vibrating
+  delay(1000); // delay one second
 
 /* ------------------ START/PAUSE MOUSE ---------------------- */
 
@@ -252,6 +260,7 @@ void loop() {
 
   }
 
+
 }
 
 
@@ -292,7 +301,7 @@ void go() {    // Setup Start Calibration Button
 
 void mouseButtons() {    // Setup Left, Right & Middle Mouse buttons
 
-  buttonState2 = digitalRead(_tiggerPin);
+  buttonState2 = digitalRead(_triggerPin);
   buttonState3 = digitalRead(_upPin);  
   buttonState4 = digitalRead(_downPin);
   buttonState5 = digitalRead(_leftPin);
@@ -301,8 +310,8 @@ void mouseButtons() {    // Setup Left, Right & Middle Mouse buttons
   buttonState8 = digitalRead(_BPin);
   buttonState9 = digitalRead(_startPin);      
   buttonState10 = digitalRead(_selectPin); 
-  buttonState11 = digitalRead(_pedalPin); 
-  
+  buttonState11 = digitalRead(_pedalPin);
+
   if (buttonState2 != lastButtonState2) {
     if (buttonState2 == LOW) {
       AbsMouse.press(MOUSE_LEFT);
@@ -417,7 +426,7 @@ void mouseButtons() {    // Setup Left, Right & Middle Mouse buttons
 
 void mouseCount() {    // Set count down on trigger
 
-  buttonState2 = digitalRead(_tiggerPin);
+  buttonState2 = digitalRead(_triggerPin);
   buttonState3 = digitalRead(_BPin);
   buttonState4 = digitalRead(_APin);   
 
