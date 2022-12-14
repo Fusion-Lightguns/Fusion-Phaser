@@ -44,7 +44,9 @@ char _downKey = KEY_DOWN_ARROW;
 char _leftKey = KEY_LEFT_ARROW;             
 char _rightKey = KEY_RIGHT_ARROW;                             
 char _startKey = KEY_RETURN; 
-char _selectKey = KEY_BACKSPACE; 
+char _selectKey = KEY_BACKSPACE;
+char _hc1Key = KEY_ESCAPE;
+char _hc2Key = KEY_SPACE
 
 int finalX;                 // Values after tilt correction
 int finalY;
@@ -68,6 +70,8 @@ int _startPin = A2;
 int _selectPin = A3; 
 int _motorPin = 3;
 int _reloadPin = 13;
+int _hc1Pin = 0000;
+int _hc2Pin = 0000;
 int _pedalPin = 5;                //NOTE: Pedal needs to connected to pin 4 on 3V boards  
 
 int buttonState1 = 0;           
@@ -92,8 +96,10 @@ int buttonState10 = 0;
 int lastButtonState10 = 0; 
 int buttonState11 = 0;
 int lastButtonState11 = 0;
-int buttonState12 = 0; 
-
+int buttonState12 = 0;
+int lastButtonState12 = 0;
+int buttonState13 = 0;
+int lastButtonState13 = 0;
 int plus = 0;         
 int minus = 0;
 
@@ -127,7 +133,9 @@ void setup() {
   pinMode(_reloadPin, INPUT_PULLUP);       
   pinMode(_pedalPin, INPUT_PULLUP);
   pinMode(_motorPin, OUTPUT);
-
+  pinMode(_hc1Pin, INPUT_PULLUP);
+  pinMode(_hc2Pin, INPUT_PULLUP);
+	
   AbsMouse.move((res_x / 2), (res_y / 2));          // Set mouse position to centre of the screen
   
   delay(500);
@@ -307,6 +315,8 @@ void mouseButtons() {    // Setup Left, Right & Middle Mouse buttons
   buttonState9 = digitalRead(_startPin);      
   buttonState10 = digitalRead(_selectPin); 
   buttonState11 = digitalRead(_pedalPin);
+  buttonState12 = digitalRead(_hc1Pin);
+  buttonState13 = digitalRead(_hc2Pin);
 
   if (buttonState2 != lastButtonState2) {
     if (buttonState2 == LOW) {
@@ -407,6 +417,30 @@ void mouseButtons() {    // Setup Left, Right & Middle Mouse buttons
     }
     delay(10);
   }
+	
+  
+  if (buttonState12 != lastButtonState12) {
+    if (buttonState12 == LOW) {
+    Keyboard.press(_hc1Key);
+    }
+    else {
+    Keyboard.release(_hc1Key);
+    }
+    delay(10);
+  }
+	
+  
+  if (buttonState13 != lastButtonState13) {
+    if (buttonState10 == LOW) {
+    Keyboard.press(_hc2Key);
+    }
+    else {
+    Keyboard.release(_hc2Key);
+    }
+    delay(10);
+  }
+	
+
 
   lastButtonState2 = buttonState2;
   lastButtonState3 = buttonState3;
@@ -418,6 +452,8 @@ void mouseButtons() {    // Setup Left, Right & Middle Mouse buttons
   lastButtonState9 = buttonState9;
   lastButtonState10 = buttonState10; 
   lastButtonState11 = buttonState11;     
+  lastButtonState12 = buttonState12;     
+  lastButtonState13 = buttonState13; 
 }
 
 void vibmotor() {
