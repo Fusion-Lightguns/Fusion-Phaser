@@ -4,34 +4,41 @@
  * @n INO file for Fusion Phaser Lightgun
 */
 
+ /* HOW TO CALIBRATE:
+ *  
+ *  Step 1: Push Calibration Button
+ *  Step 2: Pull Trigger
+ *  Step 3: Shoot Center of the Screen (try an do this as acuratley as possible)
+ *  Step 4: Mouse should lock to vertiucal axis, use A/B buttons to adjust mouse up/down
+ *  Step 5: Pull Trigger
+ *  Step 6: Mouse should lock to horizontal axis, use A/B buttons to adjust mouse left/right
+ *  Step 7: Pull Trigger to finish
+ *  Step 8: Offset are now saved to EEPROM
+*/
+
+
 #include <HID.h>                // Load libraries
 #include <Wire.h>
 #include <Keyboard.h>
 #include <AbsMouse.h>
 #include <DFRobotIRPosition.h>
 #include <Phaser.h>
-#include <WiiChuck.h>
+#include <EEPROM.h>
 
-Accessory nunchuck1;
-// Tigger is set to LEFT_MOUSE, A Button is set to RIGHT_MOUSE & B Button is set to MIDDLE_MOUSE 
+int xCenter = 512;              // Open serial monitor and update these values to save calibration
+int yCenter = 450;
+float xOffset = 147;             
+float yOffset = 82;
        
-char _upKey = KEY_UP_ARROW;                
+char _upKey = KEY_UP_ARROW;        // You can update your keyboard keys here        
 char _downKey = KEY_DOWN_ARROW;              
 char _leftKey = KEY_LEFT_ARROW;             
 char _rightKey = KEY_RIGHT_ARROW;                             
 char _startKey = KEY_RETURN; 
 char _selectKey = KEY_BACKSPACE; 
 
-int xCenter = 512;          // If second calibration seems more accurate you can replace these values with the altered camera center values from serial monitor
-int yCenter = 368;
-
 int finalX;                 // Values after tilt correction
 int finalY;
-
-int xLeft;                  // Stored calibration points
-int yTop;
-int xRight;
-int yBottom;
 
 int MoveXAxis;              // Unconstrained mouse postion
 int MoveYAxis;               
@@ -39,7 +46,7 @@ int MoveYAxis;
 int conMoveXAxis;           // Constrained mouse postion
 int conMoveYAxis;           
 
-int count = 4;                  // Set intial count
+int count = -2;                   // Set intial count
 
 int _tiggerPin = 7;               // Label Pin to buttons
 int _upPin = 11;                
@@ -51,7 +58,7 @@ int _BPin = A0;
 int _startPin = A2; 
 int _selectPin = A3;               
 int _reloadPin = 13;
-int _actionPin = 5;                       
+int _pedalPin = 5;                //NOTE: Pedal needs to connected to pin 4 on 3V boards  
 
 int buttonState1 = 0;           
 int lastButtonState1 = 0;
@@ -76,8 +83,11 @@ int lastButtonState10 = 0;
 int buttonState11 = 0;
 int lastButtonState11 = 0; 
 
+int plus = 0;         
+int minus = 0;
+
 DFRobotIRPosition myDFRobotIRPosition;
-Phaser myPhaser;
+SamcoBeta mySamco;
 
 int res_x = 1023;              // UPDATE: These values do not need to change
 int res_y = 768;               // UPDATE: These values do not need to change
@@ -85,10 +95,12 @@ int res_y = 768;               // UPDATE: These values do not need to change
 
 void setup() {
 
-  myDFRobotIRPosition.begin(); 
+  myDFRobotIRPosition.begin();               // Start IR Camera
    
-  Serial.begin(9600);                     // For debugging (make sure your serial monitor has the same baud rate)
+  Serial.begin(115200);                        // For saving calibration (make sure your serial monitor has the same baud rate)
 
+  loadSettings();
+    
   AbsMouse.init(res_x, res_y);            
 
   pinMode(_tiggerPin, INPUT_PULLUP);         // Set pin modes
@@ -101,81 +113,113 @@ void setup() {
   pinMode(_startPin, INPUT_PULLUP);  
   pinMode(_selectPin, INPUT_PULLUP);
   pinMode(_reloadPin, INPUT_PULLUP);       
-  pinMode(_actionPin, INPUT_PULLUP);
+  pinMode(_pedalPin, INPUT_PULLUP);
 
   AbsMouse.move((res_x / 2), (res_y / 2));          // Set mouse position to centre of the screen
   
   delay(500);
-
-	nunchuck1.begin();
-	if (nunchuck1.type == Unknown) {
-		nunchuck1.type = NUNCHUCK;
-	}
+  
 }
 
 
 void loop() {
 
-  if (count > 3) {
+/* ------------------ START/PAUSE MOUSE ---------------------- */
 
-    getPosition();
-    mouseButtons();
+
+  if (count > 3 ) {
+
+
+    skip();
+    mouseCount();
     PrintResults();
-    go();
+
 
   }
-  
 
-  /* ------------------ START/PAUSE MOUSE ---------------------- */
+
+  /* ---------------------- CENTRE --------------------------- */
 
 
   else if (count > 2 ) {
 
-    skip();
-    getPosition();
+    AbsMouse.move((res_x / 2), (res_y / 2));
+
     mouseCount();
-    mouseButtons();
+    getPosition();
+
+    xCenter = finalX;
+    yCenter = finalY;
+
     PrintResults();
 
   }
 
 
-  /* ---------------------- TOP LEFT --------------------------- */
+  /* -------------------- OFFSET ------------------------- */
 
 
   else if (count > 1 ) {
 
-    AbsMouse.move(300, 200);
-
     mouseCount();
+    AbsMouse.move(conMoveXAxis, conMoveYAxis);
     getPosition();
 
-    xLeft = finalX;
-    yTop = finalY;
+    MoveYAxis = map (finalY, (yCenter + ((mySamco.H() * (yOffset / 100)) / 2)), (yCenter - ((mySamco.H() * (yOffset / 100)) / 2)), 0, res_y);
+    conMoveXAxis = res_x/2;
+    conMoveYAxis = constrain (MoveYAxis, 0, res_y);
+    
+    if (plus == 1){
+    yOffset = yOffset + 1;
+    delay(10);
+    } else {
+      }
 
+    if (minus == 1){
+    yOffset = yOffset - 1;
+    delay(10);
+    } else {
+      }
+      
     PrintResults();
 
   }
 
-
-  /* -------------------- BOTTOM RIGHT ------------------------- */
-
-
+  
   else if (count > 0 ) {
-    
-    AbsMouse.move((res_x - 300), (res_y - 200));
-    
+
     mouseCount();
+    AbsMouse.move(conMoveXAxis, conMoveYAxis);
     getPosition();
 
-    xRight = finalX;
-    yBottom = finalY;
+    MoveXAxis = map (finalX, (xCenter + ((mySamco.H() * (xOffset / 100)) / 2)), (xCenter - ((mySamco.H() * (xOffset / 100)) / 2)), 0, res_x);
+    conMoveXAxis = constrain (MoveXAxis, 0, res_x);
+    conMoveYAxis = res_y/2;
     
-    xCenter = ((xRight - xLeft) / 2) + min(xRight, xLeft);
-    yCenter = ((yBottom - yTop) / 2) + min(yBottom, yTop);
+    if (plus == 1){
+    xOffset = xOffset + 1;
+    delay(10);
+    } else {
+      }
 
+    if (minus == 1){
+    xOffset = xOffset - 1;
+    delay(10);
+    } else {
+      }
+      
     PrintResults();
 
+  }
+
+  else if (count > -1) {
+    
+    count = count - 1;
+    
+    EEPROM.write(0, xCenter - 256);
+    EEPROM.write(1, yCenter - 256);
+    EEPROM.write(2, xOffset);
+    EEPROM.write(3, yOffset);
   }
 
 
@@ -183,50 +227,42 @@ void loop() {
 
 
   else {
-    
+
     AbsMouse.move(conMoveXAxis, conMoveYAxis);
 
     mouseButtons();
     getPosition();
 
-    MoveXAxis = map (finalX, xLeft, xRight, 300, (res_x - 300));
-    MoveYAxis = map (finalY, yTop, yBottom, 200, (res_y - 200));
+    MoveXAxis = map (finalX, (xCenter + ((mySamco.H() * (xOffset / 100)) / 2)), (xCenter - ((mySamco.H() * (xOffset / 100)) / 2)), 0, res_x);
+    MoveYAxis = map (finalY, (yCenter + ((mySamco.H() * (yOffset / 100)) / 2)), (yCenter - ((mySamco.H() * (yOffset / 100)) / 2)), 0, res_y);
     conMoveXAxis = constrain (MoveXAxis, 0, res_x);
     conMoveYAxis = constrain (MoveYAxis, 0, res_y);
-
+    
     PrintResults();
     reset();
 
   }
 
-
-/* --------------------------- NUN CHUCK ------------------------- */
-  Serial.println("-------------------------------------------");
-	nunchuck1.readData();    // Read inputs and update maps
-	nunchuck1.printInputs(); // Print all inputs
-	for (int i = 0; i < WII_VALUES_ARRAY_SIZE; i++) {
-		Serial.println(
-				"Controller Val " + String(i) + " = "
-						+ String((uint8_t) nunchuck1.values[i]));
-	}
-
 }
 
+
+/*        -----------------------------------------------        */
 /* --------------------------- METHODS ------------------------- */
+/*        -----------------------------------------------        */
+
 
 void getPosition() {    // Get tilt adjusted position from IR postioning camera
 
 myDFRobotIRPosition.requestPosition();
     if (myDFRobotIRPosition.available()) {
-    myPhaser.begin(myDFRobotIRPosition.readX(0), myDFRobotIRPosition.readY(0), myDFRobotIRPosition.readX(1), myDFRobotIRPosition.readY(1),myDFRobotIRPosition.readX(2), myDFRobotIRPosition.readY(2),myDFRobotIRPosition.readX(3), myDFRobotIRPosition.readY(3), xCenter, yCenter);
-    finalX = myPhaser.X();
-    finalY = myPhaser.Y();
+    mySamco.begin(myDFRobotIRPosition.readX(0), myDFRobotIRPosition.readY(0), myDFRobotIRPosition.readX(1), myDFRobotIRPosition.readY(1),myDFRobotIRPosition.readX(2), myDFRobotIRPosition.readY(2),myDFRobotIRPosition.readX(3), myDFRobotIRPosition.readY(3), xCenter, yCenter);
+    finalX = mySamco.X();
+    finalY = mySamco.Y();
     }
     else {
     Serial.println("Device not available!");
     }
 }
-
 
 
 void go() {    // Setup Start Calibration Button
@@ -245,7 +281,6 @@ void go() {    // Setup Start Calibration Button
 }
 
 
-
 void mouseButtons() {    // Setup Left, Right & Middle Mouse buttons
 
   buttonState2 = digitalRead(_tiggerPin);
@@ -257,7 +292,7 @@ void mouseButtons() {    // Setup Left, Right & Middle Mouse buttons
   buttonState8 = digitalRead(_BPin);
   buttonState9 = digitalRead(_startPin);      
   buttonState10 = digitalRead(_selectPin); 
-  buttonState11 = digitalRead(_actionPin); 
+  buttonState11 = digitalRead(_pedalPin); 
   
   if (buttonState2 != lastButtonState2) {
     if (buttonState2 == LOW) {
@@ -330,20 +365,20 @@ void mouseButtons() {    // Setup Left, Right & Middle Mouse buttons
   }
   if (buttonState9 != lastButtonState9) {
     if (buttonState9 == LOW) {
-    Keyboard.press(_selectKey);
+    Keyboard.press(_startKey);
     }
     else {
-    Keyboard.release(_selectKey);
+    Keyboard.release(_startKey);
     }
     delay(10);
   }
   
   if (buttonState10 != lastButtonState10) {
     if (buttonState10 == LOW) {
-    Keyboard.press(_startKey);
+    Keyboard.press(_selectKey);
     }
     else {
-    Keyboard.release(_startKey);
+    Keyboard.release(_selectKey);
     }
     delay(10);
   }
@@ -374,17 +409,41 @@ void mouseButtons() {    // Setup Left, Right & Middle Mouse buttons
 void mouseCount() {    // Set count down on trigger
 
   buttonState2 = digitalRead(_tiggerPin);
+  buttonState3 = digitalRead(_BPin);
+  buttonState4 = digitalRead(_APin);   
 
   if (buttonState2 != lastButtonState2) {
     if (buttonState2 == LOW) {
       count--;
     }
-    else { // do nothing
+    else {
+    }
+    delay(10);
+  }
+
+  if (buttonState3 != lastButtonState3) {
+    if (buttonState3 == LOW) {
+      plus = 1;
+    }
+    else {
+      plus = 0;
+    }
+    delay(10);
+  }
+
+  if (buttonState4 != lastButtonState4) {     
+    if (buttonState4 == LOW) {
+      minus = 1;
+    }
+    else {
+      minus = 0;
     }
     delay(10);
   }
 
   lastButtonState2 = buttonState2;
+  lastButtonState3 = buttonState3;
+  lastButtonState4 = buttonState4;            
 }
 
 
@@ -394,7 +453,7 @@ void reset() {    // Pause/Re-calibrate button
 
   if (buttonState1 != lastButtonState1) {
     if (buttonState1 == LOW) {
-      count = 3;
+      count = 4;
       delay(50);
     }
     else { // do nothing
@@ -422,26 +481,34 @@ void skip() {    // Unpause button
 }
 
 
-void PrintResults() {    // Print results for debugging
-
-  Serial.print("RAW: ");
-  Serial.print(finalX);
-  Serial.print(", ");
-  Serial.print(finalY);
-  Serial.print("     Count: ");
-  Serial.print(count);
-  Serial.print("     Calibration: ");
-  Serial.print(xLeft);
-  Serial.print(", ");
-  Serial.print(yTop);
-  Serial.print(", ");
-  Serial.print(xRight);
-  Serial.print(", ");
-  Serial.print(yBottom);
-  Serial.print("     Cam Center: x ");
-  Serial.print(xCenter);
-  Serial.print(", y ");
-  Serial.println(yCenter);
-
+void loadSettings() {
+  if (EEPROM.read(1023) == 'T') {
+    //settings have been initialized, read them
+    xCenter = EEPROM.read(0) + 256;
+    yCenter = EEPROM.read(1) + 256;
+    xOffset = EEPROM.read(2);
+    yOffset = EEPROM.read(3);
+  } else {
+    //first time run, settings were never set
+    EEPROM.write(0, xCenter - 256);
+    EEPROM.write(1, yCenter - 256);
+    EEPROM.write(2, xOffset);
+    EEPROM.write(3, yOffset);
+    EEPROM.write(1023, 'T');    
+  }
 }
 
+
+void PrintResults() {    // Print results for saving calibration
+
+  Serial.print("CALIBRATION:");
+  Serial.print("     Cam Center x/y: ");
+  Serial.print(xCenter);
+  Serial.print(", ");
+  Serial.print(yCenter);
+  Serial.print("     Offsets x/y: ");
+  Serial.print(xOffset);
+  Serial.print(", ");
+  Serial.println(yOffset);
+
+}
