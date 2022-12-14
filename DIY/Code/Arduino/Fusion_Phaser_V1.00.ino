@@ -136,10 +136,6 @@ void setup() {
 
 
 void loop() {
-  digitalWrite(_motorPin, HIGH); //vibrate
-  delay(1000);  // delay one second
-  digitalWrite(_motorPin, LOW);  //stop vibrating
-  delay(1000); // delay one second
 
 /* ------------------ START/PAUSE MOUSE ---------------------- */
 
@@ -315,6 +311,7 @@ void mouseButtons() {    // Setup Left, Right & Middle Mouse buttons
   if (buttonState2 != lastButtonState2) {
     if (buttonState2 == LOW) {
       AbsMouse.press(MOUSE_LEFT);
+	  vibmotor;
     }
     else {
       AbsMouse.release(MOUSE_LEFT);
@@ -421,6 +418,14 @@ void mouseButtons() {    // Setup Left, Right & Middle Mouse buttons
   lastButtonState9 = buttonState9;
   lastButtonState10 = buttonState10; 
   lastButtonState11 = buttonState11;     
+}
+
+void vibmotor() {
+	
+  digitalWrite(_motorPin, HIGH); //vibrate
+  delay(250);
+  digitalWrite(_motorPin, LOW);  //stop vibrating
+  delay(250);
 }
 
 
