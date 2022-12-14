@@ -70,8 +70,8 @@ int _startPin = A2;
 int _selectPin = A3; 
 int _motorPin = 3;
 int _reloadPin = 13;
-int _hc1Pin = 0000;
-int _hc2Pin = 0000;
+int _hc1Pin = 22;
+int _hc2Pin = 23;
 int _pedalPin = 5;                //NOTE: Pedal needs to connected to pin 4 on 3V boards  
 
 int buttonState1 = 0;           
