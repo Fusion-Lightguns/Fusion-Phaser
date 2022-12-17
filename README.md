@@ -34,7 +34,7 @@
 
      - DIY instructions .
      
-     - Wii nun chuck hookup in Phaser Pro . So if you need a joystick and two more buttons .
+     - Hand controller hookup in Phaser Pro . So if you need a joystick and two more buttons .
      
      - Trigger pull and power LED on Pro Version
      
