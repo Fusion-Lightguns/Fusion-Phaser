@@ -80,6 +80,19 @@ Update 12/10/22
           
           - Test gun is almost complete.
           
+
+Update 12/7/22
+
+     - Prototype gun finished printing soooo cool . 
+     
+     - Got a few Pro Micros 32u4 to test on . 
+     
+     - Ordered a Itsty Bitsty 32u4 5V
+
+     - So far cursor stuck in top left corner lol. (Will work it out)
+     
+     - Uploaded my ino files to thiss github. WORK IN PROGRESS
+          
 # Current planned attachments
 
      - Foregrip 
