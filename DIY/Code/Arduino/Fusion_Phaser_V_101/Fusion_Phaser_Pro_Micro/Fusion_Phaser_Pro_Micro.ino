@@ -1,8 +1,15 @@
-/*!
- * @file Fusion_Phaser_V1.00.ino
- * @brief Sketch for Fusion Phaser V 1.00
- * @n INO file for Fusion Phaser Lightgun
-*/
+*!
+ * @file Samco_2.0_4IR_BETA.ino
+ * @brief 10 Button Light Gun sketch for 4 LED setup
+ * @n INO file for Samco Light Gun 4 LED setup
+ *
+ * @copyright   Samco, https://github.com/samuelballantyne, June 2020
+ * @copyright   GNU Lesser General Public License
+ *
+ * @author [Sam Ballantyne](samuelballantyne@hotmail.com)
+ * @version  V1.0
+ * @date  2020
+ */
 
  /* HOW TO CALIBRATE:
  *  
@@ -13,18 +20,8 @@
  *  Step 5: Pull Trigger
  *  Step 6: Mouse should lock to horizontal axis, use A/B buttons to adjust mouse left/right
  *  Step 7: Pull Trigger to finish
- *  Step 8: Open serial monitor and update xCenter, yCenter, xOffset & yOffset values below to save calibration
+ *  Step 8: Offset are now saved to EEPROM
 */
-
-/* 
-*
-* DESIGNED FOR PRO MICRO 32U4 
-*
-* BASE CODE FROM SAMCO IR LIGHTGUN: https://github.com/samuelballantyne/IR-Light-Gun
-*
-* FUSION LIGHTGUN ADDITION/CHANGES: https://github.com/Fusion-Lightguns/Fusion-Phaser
-*/
-
 
 
 #include <HID.h>                // Load libraries
@@ -32,12 +29,13 @@
 #include <Keyboard.h>
 #include <AbsMouse.h>
 #include <DFRobotIRPosition.h>
-#include <FusionPhaser.h>
+#include <SamcoBeta.h>
+#include <EEPROM.h>
 
 int xCenter = 512;              // Open serial monitor and update these values to save calibration
 int yCenter = 450;
-float xOffset = 1.47;             
-float yOffset = 0.82;
+float xOffset = 147;             
+float yOffset = 82;
        
 char _upKey = KEY_UP_ARROW;        // You can update your keyboard keys here        
 char _downKey = KEY_DOWN_ARROW;              
@@ -55,19 +53,19 @@ int MoveYAxis;
 int conMoveXAxis;           // Constrained mouse postion
 int conMoveYAxis;           
 
-int count = -1;                   // Set intial count
+int count = 4;                   // Set intial count
 
-int _tiggerPin = A6;               // Label Pin to buttons
-int _upPin = 5;                
-int _downPin = 6;              
-int _leftPin = 7;             
-int _rightPin = 8;               
-int _APin = A0;                
-int _BPin = A1;              
+int _tiggerPin = 4;               // Label Pin to buttons
+int _upPin = 6;                
+int _downPin = 7;              
+int _leftPin = 8;             
+int _rightPin = 9;               
+int _APin = A1;                
+int _BPin = A0;              
 int _startPin = A2; 
 int _selectPin = A3;               
-int _reloadPin = A9;
-int _pedalPin = A10;                //NOTE: Pedal needs to connected to pin 4      
+int _reloadPin = 5;
+int _pedalPin = 15;                //NOTE: Pedal needs to connected to pin 4 on 3V boards  
 
 int buttonState1 = 0;           
 int lastButtonState1 = 0;
@@ -108,6 +106,8 @@ void setup() {
    
   Serial.begin(115200);                        // For saving calibration (make sure your serial monitor has the same baud rate)
 
+  loadSettings();
+    
   AbsMouse.init(res_x, res_y);            
 
   pinMode(_tiggerPin, INPUT_PULLUP);         // Set pin modes
@@ -139,6 +139,7 @@ void loop() {
 
     skip();
     mouseCount();
+    PrintResults();
 
 
   }
@@ -171,17 +172,19 @@ void loop() {
     AbsMouse.move(conMoveXAxis, conMoveYAxis);
     getPosition();
 
-    MoveYAxis = map (finalY, (yCenter + ((mySamco.H() * yOffset) / 2)), (yCenter - ((mySamco.H() * yOffset) / 2)), 0, res_y);
+    MoveYAxis = map (finalY, (yCenter + ((mySamco.H() * (yOffset / 100)) / 2)), (yCenter - ((mySamco.H() * (yOffset / 100)) / 2)), 0, res_y);
     conMoveXAxis = res_x/2;
     conMoveYAxis = constrain (MoveYAxis, 0, res_y);
     
     if (plus == 1){
-    yOffset = yOffset + 0.01;
+    yOffset = yOffset + 1;
+    delay(10);
     } else {
       }
 
     if (minus == 1){
-    yOffset = yOffset - 0.01;
+    yOffset = yOffset - 1;
+    delay(10);
     } else {
       }
       
@@ -196,22 +199,34 @@ void loop() {
     AbsMouse.move(conMoveXAxis, conMoveYAxis);
     getPosition();
 
-    MoveXAxis = map (finalX, (xCenter + ((mySamco.H() * xOffset) / 2)), (xCenter - ((mySamco.H() * xOffset) / 2)), 0, res_x);
+    MoveXAxis = map (finalX, (xCenter + ((mySamco.H() * (xOffset / 100)) / 2)), (xCenter - ((mySamco.H() * (xOffset / 100)) / 2)), 0, res_x);
     conMoveXAxis = constrain (MoveXAxis, 0, res_x);
     conMoveYAxis = res_y/2;
     
     if (plus == 1){
-    xOffset = xOffset + 0.01;
+    xOffset = xOffset + 1;
+    delay(10);
     } else {
       }
 
     if (minus == 1){
-    xOffset = xOffset - 0.01;
+    xOffset = xOffset - 1;
+    delay(10);
     } else {
       }
       
     PrintResults();
 
+  }
+
+  else if (count > -1) {
+    
+    count = count - 1;
+    
+    EEPROM.write(0, xCenter - 256);
+    EEPROM.write(1, yCenter - 256);
+    EEPROM.write(2, xOffset);
+    EEPROM.write(3, yOffset);
   }
 
 
@@ -225,8 +240,8 @@ void loop() {
     mouseButtons();
     getPosition();
 
-    MoveXAxis = map (finalX, (xCenter + ((mySamco.H() * xOffset) / 2)), (xCenter - ((mySamco.H() * xOffset) / 2)), 0, res_x);
-    MoveYAxis = map (finalY, (yCenter + ((mySamco.H() * yOffset) / 2)), (yCenter - ((mySamco.H() * yOffset) / 2)), 0, res_y);
+    MoveXAxis = map (finalX, (xCenter + ((mySamco.H() * (xOffset / 100)) / 2)), (xCenter - ((mySamco.H() * (xOffset / 100)) / 2)), 0, res_x);
+    MoveYAxis = map (finalY, (yCenter + ((mySamco.H() * (yOffset / 100)) / 2)), (yCenter - ((mySamco.H() * (yOffset / 100)) / 2)), 0, res_y);
     conMoveXAxis = constrain (MoveXAxis, 0, res_x);
     conMoveYAxis = constrain (MoveYAxis, 0, res_y);
     
@@ -257,7 +272,6 @@ myDFRobotIRPosition.requestPosition();
 }
 
 
-
 void go() {    // Setup Start Calibration Button
 
   buttonState1 = digitalRead(_reloadPin);
@@ -272,7 +286,6 @@ void go() {    // Setup Start Calibration Button
   }
   lastButtonState1 = buttonState1;
 }
-
 
 
 void mouseButtons() {    // Setup Left, Right & Middle Mouse buttons
@@ -357,7 +370,7 @@ void mouseButtons() {    // Setup Left, Right & Middle Mouse buttons
     }
     delay(10);
   }
- if (buttonState9 != lastButtonState9) {
+  if (buttonState9 != lastButtonState9) {
     if (buttonState9 == LOW) {
     Keyboard.press(_startKey);
     }
@@ -472,6 +485,24 @@ void skip() {    // Unpause button
     delay(50);
   }
   lastButtonState1 = buttonState1;
+}
+
+
+void loadSettings() {
+  if (EEPROM.read(1023) == 'T') {
+    //settings have been initialized, read them
+    xCenter = EEPROM.read(0) + 256;
+    yCenter = EEPROM.read(1) + 256;
+    xOffset = EEPROM.read(2);
+    yOffset = EEPROM.read(3);
+  } else {
+    //first time run, settings were never set
+    EEPROM.write(0, xCenter - 256);
+    EEPROM.write(1, yCenter - 256);
+    EEPROM.write(2, xOffset);
+    EEPROM.write(3, yOffset);
+    EEPROM.write(1023, 'T');    
+  }
 }
 
 
