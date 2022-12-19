@@ -7,3 +7,5 @@ Click "Print" Folder to print then build parts.
 
 
 # DIY Parts Link:
+
+https://github.com/Fusion-Lightguns/Fusion-Phaser/tree/main/DIY/Parts
