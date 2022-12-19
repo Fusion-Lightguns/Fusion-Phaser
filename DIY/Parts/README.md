@@ -16,10 +16,6 @@ USB Bar uses wii usb bar with ir leds you need 2 of them.
 
 Looose uses LED kit or diy leds on power supply and splitter
 
-More Info See:
-
-https://github.com/Fusion-Lightguns/Fusion-Phaser/tree/main/LED%20Setup
-
 # USB Bar
 
 https://amzn.to/3BNOr7U
