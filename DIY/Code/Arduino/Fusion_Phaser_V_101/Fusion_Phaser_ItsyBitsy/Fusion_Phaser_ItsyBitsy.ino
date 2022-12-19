@@ -1,8 +1,10 @@
 /*!
- * @file Fusion_Phaser_V1.00.ino
- * @brief Sketch for Fusion Phaser V 1.00
- * @n INO file for Fusion Phaser Lightgun
-*/
+ * @file FusionPhaser_1.0.ino
+ * @brief 10 button & joystick lightgun 
+ * @n INO file for FusionPhaser Light Gun setup
+ * @version  V1.0
+ * @date  2022
+ */
 
  /* HOW TO CALIBRATE:
  *  
@@ -14,16 +16,10 @@
  *  Step 6: Mouse should lock to horizontal axis, use A/B buttons to adjust mouse left/right
  *  Step 7: Pull Trigger to finish
  *  Step 8: Offset are now saved to EEPROM
-*/
-
-/* 
-*
-* DESIGNED FOR ITSYBITSY 32U4 
-*
-* BASE CODE FROM SAMCO IR LIGHTGUN: https://github.com/samuelballantyne/IR-Light-Gun
-*
-* FUSION LIGHTGUN ADDITION/CHANGES: https://github.com/Fusion-Lightguns/Fusion-Phaser
-*/
+ *
+ *   ATTENTION!!!!!!!!
+ *   BUILT FOR PRO MICRO 32U4 5V
+ */
 
 
 #include <HID.h>                // Load libraries
@@ -44,9 +40,7 @@ char _downKey = KEY_DOWN_ARROW;
 char _leftKey = KEY_LEFT_ARROW;             
 char _rightKey = KEY_RIGHT_ARROW;                             
 char _startKey = KEY_RETURN; 
-char _selectKey = KEY_BACKSPACE;
-char _hc1Key = KEY_ESC;
-char _hc2Key = KEY_LEFT_SHIFT;
+char _selectKey = KEY_BACKSPACE; 
 
 int finalX;                 // Values after tilt correction
 int finalY;
@@ -57,22 +51,24 @@ int MoveYAxis;
 int conMoveXAxis;           // Constrained mouse postion
 int conMoveYAxis;           
 
-int count = -2;                   // Set intial count
+int count = 4;                   // Set intial count
 
-int _triggerPin = 7;               // Label Pin to buttons
-int _upPin = 11;                
-int _downPin = 9;              
-int _leftPin = 10;             
-int _rightPin = 12;               
-int _APin = A1;                
-int _BPin = A0;              
+int _triggerPin = 4;               // Label Pin to buttons
+int _upPin = 6;                
+int _downPin = 7;              
+int _leftPin = 8;             
+int _rightPin = 9;               
+int _APin = A0;                
+int _BPin = A1;              
 int _startPin = A2; 
-int _selectPin = A3; 
-int _motorPin = A7;
-int _reloadPin = 13;
-int _hc1Pin = A6;
-int _hc2Pin = A4;
-int _pedalPin = 5;                //NOTE: Pedal needs to connected to pin 4 on 3V boards  
+int _selectPin = A3;               
+int _caliPin = 5;
+int _pedalPin = 15;                //NOTE: Pedal needs to connected to pin 4 on 3V boards  
+#define joystick_X 14    //joystick  X-as
+#define joystick_Y 16    //joystick  Y-as
+#define button_2 10       // button on d2
+
+
 
 int buttonState1 = 0;           
 int lastButtonState1 = 0;
@@ -95,14 +91,10 @@ int lastButtonState9 = 0;
 int buttonState10 = 0;
 int lastButtonState10 = 0; 
 int buttonState11 = 0;
-int lastButtonState11 = 0;
-int buttonState12 = 0;
-int lastButtonState12 = 0;
-int buttonState13 = 0;
-int lastButtonState13 = 0;
+int lastButtonState11 = 0; 
+
 int plus = 0;         
 int minus = 0;
-
 
 DFRobotIRPosition myDFRobotIRPosition;
 FusionPhaser myFusionPhaser;
@@ -112,13 +104,6 @@ int res_y = 768;               // UPDATE: These values do not need to change
 
 
 //*****************Joystick***********************************************//
-
-//*****************define your pins here***********************************************//
-#define joystick_X A7    //joystick  X-as
-#define joystick_Y A8    //joystick  Y-as
-#define button_2 A5       // button on d2
-
-
 //****************define the min, max and center you want for your joystick here*******//
 long range_X_min = 1000;           //lowest X value
 long range_X_max = 10000;          //highest X value
@@ -188,13 +173,13 @@ long joy_Y(long Y) {
   pinMode(_BPin, INPUT_PULLUP);
   pinMode(_startPin, INPUT_PULLUP);  
   pinMode(_selectPin, INPUT_PULLUP);
-  pinMode(_reloadPin, INPUT_PULLUP);       
+  pinMode(_caliPin, INPUT_PULLUP);       
   pinMode(_pedalPin, INPUT_PULLUP);
-  pinMode(_motorPin, OUTPUT);
-  pinMode(_hc1Pin, INPUT_PULLUP);
-  pinMode(_hc2Pin, INPUT_PULLUP);
-  
-	
+  pinMode(joystick_X, INPUT);
+  pinMode(joystick_Y, INPUT);
+  pinMode(button_2, INPUT_PULLUP);    //we pull this pin high to avoid a floating pin
+
+
   AbsMouse.move((res_x / 2), (res_y / 2));          // Set mouse position to centre of the screen
   
   delay(500);
@@ -203,7 +188,7 @@ long joy_Y(long Y) {
 
 
 void loop() {
-    val_X = analogRead(joystick_X);
+      val_X = analogRead(joystick_X);
   Serial.print(joy_X(val_X)); Serial.print(" : ");
   delay(50);
   val_Y = analogRead(joystick_Y);
@@ -332,7 +317,6 @@ void loop() {
 
   }
 
-
 }
 
 
@@ -357,7 +341,7 @@ myDFRobotIRPosition.requestPosition();
 
 void go() {    // Setup Start Calibration Button
 
-  buttonState1 = digitalRead(_reloadPin);
+  buttonState1 = digitalRead(_caliPin);
 
   if (buttonState1 != lastButtonState1) {
     if (buttonState1 == LOW) {
@@ -382,14 +366,11 @@ void mouseButtons() {    // Setup Left, Right & Middle Mouse buttons
   buttonState8 = digitalRead(_BPin);
   buttonState9 = digitalRead(_startPin);      
   buttonState10 = digitalRead(_selectPin); 
-  buttonState11 = digitalRead(_pedalPin);
-  buttonState12 = digitalRead(_hc1Pin);
-  buttonState13 = digitalRead(_hc2Pin);
-
+  buttonState11 = digitalRead(_pedalPin); 
+  
   if (buttonState2 != lastButtonState2) {
     if (buttonState2 == LOW) {
       AbsMouse.press(MOUSE_LEFT);
-	    vibmotor;
     }
     else {
       AbsMouse.release(MOUSE_LEFT);
@@ -485,30 +466,6 @@ void mouseButtons() {    // Setup Left, Right & Middle Mouse buttons
     }
     delay(10);
   }
-	
-  
-  if (buttonState12 != lastButtonState12) {
-    if (buttonState12 == LOW) {
-    Keyboard.press(_hc1Key);
-    }
-    else {
-    Keyboard.release(_hc1Key);
-    }
-    delay(10);
-  }
-	
-  
-  if (buttonState13 != lastButtonState13) {
-    if (buttonState10 == LOW) {
-    Keyboard.press(_hc2Key);
-    }
-    else {
-    Keyboard.release(_hc2Key);
-    }
-    delay(10);
-  }
-	
-
 
   lastButtonState2 = buttonState2;
   lastButtonState3 = buttonState3;
@@ -520,16 +477,6 @@ void mouseButtons() {    // Setup Left, Right & Middle Mouse buttons
   lastButtonState9 = buttonState9;
   lastButtonState10 = buttonState10; 
   lastButtonState11 = buttonState11;     
-  lastButtonState12 = buttonState12;     
-  lastButtonState13 = buttonState13; 
-}
-
-void vibmotor() {
-	
-  digitalWrite(_motorPin, HIGH); //vibrate
-  delay(250);
-  digitalWrite(_motorPin, LOW);  //stop vibrating
-  delay(250);
 }
 
 
@@ -576,7 +523,7 @@ void mouseCount() {    // Set count down on trigger
 
 void reset() {    // Pause/Re-calibrate button
 
-  buttonState1 = digitalRead(_reloadPin);
+  buttonState1 = digitalRead(_caliPin);
 
   if (buttonState1 != lastButtonState1) {
     if (buttonState1 == LOW) {
@@ -593,7 +540,7 @@ void reset() {    // Pause/Re-calibrate button
 
 void skip() {    // Unpause button
 
-  buttonState1 = digitalRead(_reloadPin);
+  buttonState1 = digitalRead(_caliPin);
 
   if (buttonState1 != lastButtonState1) {
     if (buttonState1 == LOW) {
