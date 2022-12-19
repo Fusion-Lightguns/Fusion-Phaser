@@ -53,17 +53,22 @@ int conMoveYAxis;
 
 int count = 4;                   // Set intial count
 
-int _tiggerPin = 4;               // Label Pin to buttons
+int _triggerPin = 4;               // Label Pin to buttons
 int _upPin = 6;                
 int _downPin = 7;              
 int _leftPin = 8;             
 int _rightPin = 9;               
-int _APin = A1;                
-int _BPin = A0;              
+int _APin = A0;                
+int _BPin = A1;              
 int _startPin = A2; 
 int _selectPin = A3;               
-int _reloadPin = 5;
+int _caliPin = 5;
 int _pedalPin = 15;                //NOTE: Pedal needs to connected to pin 4 on 3V boards  
+#define joystick_X 14    //joystick  X-as
+#define joystick_Y 16    //joystick  Y-as
+#define button_2 10       // button on d2
+
+
 
 int buttonState1 = 0;           
 int lastButtonState1 = 0;
@@ -98,17 +103,68 @@ int res_x = 1023;              // UPDATE: These values do not need to change
 int res_y = 768;               // UPDATE: These values do not need to change
 
 
+//*****************Joystick***********************************************//
+//****************define the min, max and center you want for your joystick here*******//
+long range_X_min = 1000;           //lowest X value
+long range_X_max = 10000;          //highest X value
+long range_X_center = 0;           //X center calue
+unsigned long deadZone_X = 1;      //deadzone X, return center value for center +- deadzone(in steps of 1/1024)
+
+float range_Y_min = 0;             //lowest Y value
+float range_Y_max = 1023;          //highest Y value
+float range_Y_center = 512;        //Y center value
+unsigned long deadZone_Y = 1;      //deadzone Y, return center value for center +- deadzone(in steps of 1/1024)
+
+
+//***************calibration variables************************************************//
+int val_X, val_Y;
+
+unsigned long X_CENTER, X_MIN, X_MAX;
+unsigned long Y_CENTER, Y_MIN, Y_MAX;
+
+unsigned long cal_X;
+unsigned long cal_Y;
+
 void setup() {
 
   myDFRobotIRPosition.begin();               // Start IR Camera
    
+  Serial.begin(9600);
+  pinMode(joystick_X, INPUT);
+  pinMode(joystick_Y, INPUT);
+  pinMode(button_2, INPUT_PULLUP);    //we pull this pin high to avoid a floating pin
+  calibrate();
+}
+
+long joy_X(long X) {
+  X += (X_CENTER-512);   //should always be 512
+  if (X <= 512) {
+    X = mapfloat(X, X_MIN, X_CENTER, range_X_min, range_X_center);   //min,center to range min, range center
+    return X;
+  }
+  else if (X > 512) {
+    X = mapfloat(X, 512, 1024 + X_CENTER, range_X_center, range_X_max);
+    return X;
+  }
+}
+
+long joy_Y(long Y) {
+  Y += (Y_CENTER-512);
+  if (Y <= range_Y_center) {
+    Y = mapfloat(Y, Y_CENTER, 512, 0, 512);
+    return Y;
+  }
+  else if (Y > range_Y_center) {
+    Y = mapfloat(Y, 512, 1024 + Y_CENTER, 512, 1024);
+    return Y;
+  }
   Serial.begin(115200);                        // For saving calibration (make sure your serial monitor has the same baud rate)
 
   loadSettings();
     
   AbsMouse.init(res_x, res_y);            
 
-  pinMode(_tiggerPin, INPUT_PULLUP);         // Set pin modes
+  pinMode(_triggerPin, INPUT_PULLUP);         // Set pin modes
   pinMode(_upPin, INPUT_PULLUP);
   pinMode(_downPin, INPUT_PULLUP);
   pinMode(_leftPin, INPUT_PULLUP);
@@ -117,8 +173,12 @@ void setup() {
   pinMode(_BPin, INPUT_PULLUP);
   pinMode(_startPin, INPUT_PULLUP);  
   pinMode(_selectPin, INPUT_PULLUP);
-  pinMode(_reloadPin, INPUT_PULLUP);       
+  pinMode(_caliPin, INPUT_PULLUP);       
   pinMode(_pedalPin, INPUT_PULLUP);
+  pinMode(joystick_X, INPUT);
+  pinMode(joystick_Y, INPUT);
+  pinMode(button_2, INPUT_PULLUP);    //we pull this pin high to avoid a floating pin
+
 
   AbsMouse.move((res_x / 2), (res_y / 2));          // Set mouse position to centre of the screen
   
@@ -128,6 +188,15 @@ void setup() {
 
 
 void loop() {
+      val_X = analogRead(joystick_X);
+  Serial.print(joy_X(val_X)); Serial.print(" : ");
+  delay(50);
+  val_Y = analogRead(joystick_Y);
+  Serial.println(joy_Y(val_Y));
+  delay(50);
+  if (digitalRead(button_2) == LOW) {
+    calibrate();    //you can call any function you want here, this is just to show the possibilities
+  }
 
 /* ------------------ START/PAUSE MOUSE ---------------------- */
 
@@ -272,7 +341,7 @@ myDFRobotIRPosition.requestPosition();
 
 void go() {    // Setup Start Calibration Button
 
-  buttonState1 = digitalRead(_reloadPin);
+  buttonState1 = digitalRead(_caliPin);
 
   if (buttonState1 != lastButtonState1) {
     if (buttonState1 == LOW) {
@@ -288,7 +357,7 @@ void go() {    // Setup Start Calibration Button
 
 void mouseButtons() {    // Setup Left, Right & Middle Mouse buttons
 
-  buttonState2 = digitalRead(_tiggerPin);
+  buttonState2 = digitalRead(_triggerPin);
   buttonState3 = digitalRead(_upPin);  
   buttonState4 = digitalRead(_downPin);
   buttonState5 = digitalRead(_leftPin);
@@ -413,7 +482,7 @@ void mouseButtons() {    // Setup Left, Right & Middle Mouse buttons
 
 void mouseCount() {    // Set count down on trigger
 
-  buttonState2 = digitalRead(_tiggerPin);
+  buttonState2 = digitalRead(_triggerPin);
   buttonState3 = digitalRead(_BPin);
   buttonState4 = digitalRead(_APin);   
 
@@ -454,7 +523,7 @@ void mouseCount() {    // Set count down on trigger
 
 void reset() {    // Pause/Re-calibrate button
 
-  buttonState1 = digitalRead(_reloadPin);
+  buttonState1 = digitalRead(_caliPin);
 
   if (buttonState1 != lastButtonState1) {
     if (buttonState1 == LOW) {
@@ -471,7 +540,7 @@ void reset() {    // Pause/Re-calibrate button
 
 void skip() {    // Unpause button
 
-  buttonState1 = digitalRead(_reloadPin);
+  buttonState1 = digitalRead(_caliPin);
 
   if (buttonState1 != lastButtonState1) {
     if (buttonState1 == LOW) {
@@ -503,6 +572,89 @@ void loadSettings() {
   }
 }
 
+void set_range_X(float min, float max, float center) {
+  range_X_min = min;
+  range_X_max = max;
+  range_X_center = center;
+}
+
+void set_range_Y(float min, float max, float center) {
+  range_Y_min = min;
+  range_Y_max = max;
+  range_Y_center = center;
+}
+
+void calibrate() {
+  Serial.println("\n---calibrating joystick---\n");
+  Serial.println("place the joystick in the center position");
+  cal_X = 0;
+  cal_Y = 0;
+  delay(2500);
+  Serial.print("calibrating center");
+  for (int i = 0; i < 100; i++) {
+    Serial.print(".");
+    cal_X += analogRead(joystick_X);
+    delay(5);
+    cal_Y += analogRead(joystick_Y);
+    delay(5);
+  }
+  X_CENTER = (cal_X/100);
+  Y_CENTER = (cal_Y/100);
+  Serial.print("\nCorrection X: ");Serial.print(X_CENTER);
+  Serial.print("\nCorrection Y: ");Serial.println(Y_CENTER);
+  
+  Serial.println("\nplace the joystick in the bottom-left corner");
+  X_MIN = 0;    //reset the values
+  Y_MIN = 0;
+  delay(2500);
+  Serial.print("calibrating position");
+   for (int i = 0; i < 100; i++) {    //take 100 readings
+    Serial.print(".");
+    X_MIN += analogRead(joystick_X);
+    delay(5);
+    Y_MIN += analogRead(joystick_Y);
+    delay(5);
+  }
+  X_MIN /= 100;
+  Y_MIN /= 100;
+  Serial.println();
+  Serial.print("X: "); Serial.println(X_MIN);
+  Serial.print("Y: "); Serial.println(Y_MIN);
+
+Serial.println("\nplace the joystick in the top-right corner");
+  X_MAX = 0;    //reset the values
+  Y_MAX = 0;
+  delay(2500);
+  Serial.print("calibrating position");
+   for (int i = 0; i < 100; i++) {    //take 100 readings
+    Serial.print(".");
+    X_MAX += analogRead(joystick_X);
+    delay(5);
+    Y_MAX += analogRead(joystick_Y);
+    delay(5);
+  }
+  X_MAX /=  100;
+  Y_MAX /=  100;
+  Serial.println();
+  Serial.print("X: "); Serial.println(X_MAX);
+  Serial.print("Y: "); Serial.println(Y_MAX);
+
+  if(X_MAX < X_MIN){
+    unsigned long val = X_MAX;
+    X_MAX = X_MIN;
+    X_MIN = val;
+  }
+  if(Y_MAX < Y_MIN){
+    unsigned long val = Y_MAX;
+    Y_MAX = Y_MIN;
+    Y_MIN = val;
+  }
+
+  Serial.print("\nrange X: ");Serial.print(X_MIN);Serial.print(" - ");Serial.println(X_MAX);
+  Serial.print("range X: ");Serial.print(Y_MIN);Serial.print(" - ");Serial.println(Y_MAX);
+    
+  Serial.println("\n---calibration done---\n");
+}
 
 void PrintResults() {    // Print results for saving calibration
 
@@ -516,5 +668,10 @@ void PrintResults() {    // Print results for saving calibration
   Serial.print(", ");
   Serial.println(yOffset);
 
+}
+
+float mapfloat(float x, float in_min, float in_max, float out_min, float out_max)
+{
+  return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
 
