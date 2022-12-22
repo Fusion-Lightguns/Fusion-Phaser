@@ -10,7 +10,7 @@
 
 3. For further LED setup/calbration see Step 6 in Software Setup below
 
-# Software Setup
+# Calibration
 
 1. Plug Gun into Pi/PC
 
@@ -22,13 +22,13 @@
 
 - Shoot Top Left Then Bottom Right
 
-4. Advanced Calibration
+# Advanced Calibration
 
-- For windows follow 3a
+- For windows follow 1a
 
-- For Linux use 3b
+- For Linux use 1b
 
-4a. Windows
+1a. Windows
 
 - Plug in a keyboard
 
@@ -41,7 +41,7 @@
 - Follow on screen instructions
 
 
-4b. Linux/Pi
+1b. Linux/Pi
 
 - Plug in a keyboard
 
@@ -55,12 +55,12 @@
 
 - Follow on screen instructions
 
-5. Click Save Calibration
+2. Click Save Calibration
 
-6. Click on LED Fine Tune (6-8 optional)
+3. Click on LED Fine Tune (6-8 optional)
 
-7. Check out on screen LED Guide lines 
+4. Check out on screen LED Guide lines 
 
-8. Move LEDS to match Guide Lines 
+5. Move LEDS to match Guide Lines 
 
-9. Close Fusion-Guns-Tool
+6. Close Fusion-Gun-Tool
