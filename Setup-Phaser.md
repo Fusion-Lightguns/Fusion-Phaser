@@ -47,11 +47,9 @@
 
 - Plug in Fusion Phaser
 
-- Install Wine to run windows program. Linux program work in progress
+- Download this github : COMING SOON
 
-- Open \Fusion-Lightguns\Software\Fusion-Guns-Tool\Fusion-Guns-Tool.exe
-
-- Click on Calibrate 
+- Extract somewhere 
 
 - Follow on screen instructions
 
