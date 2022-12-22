@@ -2,63 +2,78 @@
 
 
 
-# LED Setup 
 
-1. Unwrap LEDS and figure out wher e your gonna plug in 
+# LED SEtup for Fusion Phaser
 
-2. Mount LEDS in a cross ponts shape. Top of TV in center, left of TV in center and so on.
+    With LED setup you have two choices, USB BAR or Loose.
 
-3. For further LED setup/calbration see Step 6 in Software Setup below
+    USB Bar use IR LEDs in a usb wii bar.
+
+    Loose uses a IR LED Kit or DIY IR LEDS on wires.
+
+# USB Bar Setup
+
+    - Find middle of TV
+
+    - Place USB Bars in center top & bottom of tv/screen.
+
+    - Plug USB Bars into a power supply.
+
+    - Calibrate gun (see below)
+
+    - Enjoy
+
+# Loose LED Setup 
+
+    - Find middle of TV
+
+    - Put two leds on top of tv and on bottom of tv, equal distance from the middle and edge of TV
+
+    - Calibrate gun (see below)
+    
+    - Enjoy
+
 
 # Calibration
 
-1. Plug Gun into Pi/PC
+    - Plug Gun into Pi/PC
 
-2. Extract Fusion-Lightguns.zip
+    - Press calibration on gun
 
-3. For quick calibration (maybe well see)
+    - Shoot Center of screen as accurately as possible
 
-- Press calibration on gun
+    - Move gun up/down shoot center of screen
 
-- Shoot Top Left Then Bottom Right
+    - Move gun left/right shoot center of screen
+
+    - Shoot to finish
 
 # Advanced Calibration
 
-- For windows follow 1a
+    - Plug in Fusion Phaser
 
-- For Linux use 1b
+    - Download this github : COMING SOON
 
-1a. Windows
+    - Extract somewhere 
+    
+    - Open Fusion-Gun-Tool Folder
 
-- Plug in a keyboard
+    - Open Advance-Calibrate.mp4 (MAKE SURE THAT IT FULLSCREEN . YES THE WHOLE SCREEN)
 
-- Plug in Fusion Phaser
+    - Follow Video instructions.
 
-- Open \Fusion-Lightguns\Software\Fusion-Guns-Tool\Fusion-Guns-Tool.exe
+# LED Fine Tuning
 
-- Click on Calibrate 
+    - Plug in LEDS
 
-- Follow on screen instructions
+    - Download this github : COMING SOON
+
+    - Extract somewhere 
+
+    - Open Fusion-Gun-Tool Folder
+
+    - Open LED-Fine-Tune.mp4 (MAKE SURE THAT IT FULLSCREEN . YES THE WHOLE SCREEN)
+
+    - Follow Video instructions.
 
 
-1b. Linux/Pi
-
-- Plug in a keyboard
-
-- Plug in Fusion Phaser
-
-- Download this github : COMING SOON
-
-- Extract somewhere 
-
-- Follow on screen instructions
-
-2. Click Save Calibration
-
-3. Click on LED Fine Tune (6-8 optional)
-
-4. Check out on screen LED Guide lines 
-
-5. Move LEDS to match Guide Lines 
-
-6. Close Fusion-Gun-Tool
