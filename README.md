@@ -1,6 +1,6 @@
 # Whats this ? 
 
-     A open source Infared Light gun. 
+     A open source Infared Light gun.
      
 # What operating systems Fusion Phaser work on?
 
@@ -34,7 +34,7 @@
 
      - DIY instructions .
      
-     - Hand controller hookup in Phaser Pro . So if you need a joystick and two more buttons .
+     - Hand controller port,  if you need a joystick and two more buttons .
      
      - Trigger pull and power LED on Pro Version
      
@@ -42,9 +42,11 @@
      
      - In line power switch on both versions.
 
-     - Built with Linux/RetroPie in mind .
+     - Built with Linux/RetroPie in mind . ( Making Setup Scripts)
 
      - Removable Foregrip and attachments (currently just a idea) . 
+     
+     - Multiple boards/micr processors used. Currently Pro Micro 32u4 5V & Itsy Bitsy 32u4 5V
 
           
 # Current planned attachments
@@ -88,7 +90,7 @@
      
           I dont like the limit of buttons, attachments and designs on current choices.
           
-     - How do  Iset it up?
+     - How do  I set it up?
      
           Please See: https://github.com/Fusion-Lightguns/Fusion-Phaser/blob/main/Setup-Phaser.md
           
