@@ -6,13 +6,13 @@
 
      Linux & Windows 
      
-# All code and 3D printed files will be avaiable for free when complete.
+# DIY Files
 
      - 3D printable Files (STL)
                
                https://github.com/Fusion-Lightguns/Fusion-Phaser/tree/main/DIY/Offical%20Shell/Print/STLs
      
-     - Code
+     - Coding Files
      
                https://github.com/Fusion-Lightguns/Fusion-Phaser/tree/main/DIY/Code
 
@@ -42,14 +42,9 @@
      
      - In line power switch on both versions.
 
-     - Setup scripts and code .
-
      - Built with Linux/RetroPie in mind .
 
-     - Removable Foregrip and attachments .
-
-# How far along is this project ? 
-
+     - Removable Foregrip and attachments (currently just a idea) . 
 
           
 # Current planned attachments
@@ -59,7 +54,7 @@
      - Stock 
      
      
-# Planned Button Mapping
+# Button Mapping
 
      On The Lightgun---------------Keyboard button
      
@@ -93,10 +88,14 @@
      
           I dont like the limit of buttons, attachments and designs on current choices.
           
-     - How do i set it up?
+     - How do  Iset it up?
      
           Please See: https://github.com/Fusion-Lightguns/Fusion-Phaser/blob/main/Setup-Phaser.md
           
+          
+# Changelong
+      
+      - https://github.com/Fusion-Lightguns/Fusion-Phaser/blob/main/Changelog.md
     
           
           
