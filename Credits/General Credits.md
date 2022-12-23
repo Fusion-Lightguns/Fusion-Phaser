@@ -8,6 +8,12 @@
     
     https://github.com/samuelballantyne/IR-Light-Gun
     
+---- Prow7 
+
+    Major enchancements. Such as more accurate stuff like that.
+    
+    https://github.com/Prow7/ir-light-gun
+    
 ---- DFRobot 
 
     IRamera and general tech stuff.
