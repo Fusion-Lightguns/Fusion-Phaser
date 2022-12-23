@@ -2,12 +2,6 @@
 
      A open source Infared Light gun.
      
-     This is a remix/updated version of Samco Lightgun & IR Lightgun by Matt080-Prog.
-     
-     Samco: https://github.com/matt08-prog/IR_Light_Gun
-     
-     IR Light Gun: https://github.com/matt08-prog/IR_Light_Gun
-     
 # What operating systems Fusion Phaser work on?
 
      Linux, Windows & Xbox One ( weird but registers fine)
