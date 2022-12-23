@@ -54,3 +54,8 @@ Update 12/21/22
     - Ordered stuff to capture videos
     
     - Made more progress on kickstarter . ( Waiting till really ready to launch)
+    
+Update 12/23/22
+
+    - Found some awesome enchancements we are gonna use. https://github.com/Prow7/ir-light-gun
+      
