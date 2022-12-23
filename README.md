@@ -6,6 +6,10 @@
 
      Linux, Windows & Xbox One ( weird but registers fine)
      
+# Howd you do this? 
+
+     We used SAMCO and Prow7 IR Lightgun repos on github and modified them to maek my own version.
+     
 # DIY Files
 
      - 3D printable Files (STL)
