@@ -1,11 +1,36 @@
 # Whats this ? 
 
-     A open source Infared Light gun.
+     A open source Infared Light gun. Built using a microprocesor, a IR Camera (mostly DFRobots), some coding & buttons.
      
 # What operating systems Fusion Phaser work on?
 
-     Linux & Windows
+     Linux & Windows. 
      
+     Tested alright on a XBox One. Need to figure out if I can make better or not worth it.
+     
+     
+# Features
+
+     - Easy calibration 
+     
+     - 7 Buttons on gun
+     
+     - Hand controller hookup
+     
+     - Open source with DIY instructions & Files. Wanna build yourself do it lol .
+     
+     - Made by gamers for gamers.
+
+     - 2 different versions of lightgun.
+     
+        Fusion Phaser & Fusion Phaser Pro
+     
+     - Hand controller port,  if you need a dpad and two more buttons .
+ 
+     - Trigger pull and power LED
+     
+     - Built with Linux/RetroPie in mind . ( Making Setup Scripts)
+
 # Howd you do this? 
 
      I used SAMCO and Prow7 IR Lightgun repos on github and modified them to make my own version.
@@ -21,57 +46,30 @@
      
                https://github.com/Fusion-Lightguns/Fusion-Phaser/tree/main/DIY/Code
 
-# What's different than other Lightguns? 
+# Current Planned For The Future
 
-     - Fusion Phaser is a custom designed gun.
-    
-     - More buttons than most. Will have 5 buttons, including trigger .
-
-     - Open source codes and designs. Wanna build yourself do it lol .
+     - Removable Foregrip and Stock
      
-     - Made by gamers for gamers.
-
-     - Assembled/made & coded in USA.
-
-     - 2 different versions of lightgun.
+     - DIY Kits
      
-        Fusion Phaser & Fusion Phaser Pro
+     - Premade Lightguns
 
-     - DIY instructions .
-     
-     - Hand controller port,  if you need a joystick and two more buttons .
-     
-     - Trigger pull and power LED on Pro Version
-          
-     - In line power switch on both versions.
-
-     - Built with Linux/RetroPie in mind . ( Making Setup Scripts)
-
-     - Removable Foregrip and attachments (currently just a idea) . 
-     
-     - Multiple boards/micro processors used. Currently Pro Micro 32u4 5V & Itsy Bitsy 32u4 5V
-
-          
-# Current planned attachments
-
-     - Foregrip 
-          
-     - Stock 
-     
      
 # Button Mapping (subject to change)
 
      On The Lightgun---------------Keyboard button
      
-     - Trigger ----------------------Mouse 1
+     - Trigger ----------------------- Mouse 1
 
-     - Left side of gun button1 ------Mouse 2
+     - Left side of gun button1 ------ Mouse 3 ( if no slide Mouse 2)
 
-     - Left side of gun button2 ------Escape
+     - Left side of gun button2 ------ Escape
 
-     - Right side of gun button1 -----Mouse 3
+     - Right side of gun button1 ----- Mouse 3
 
-     - Right side of gun button2 -----Enter
+     - Right side of gun button2 ----- Enter
+      
+     - Slide grip -------------------- Mouse 2 (in the works)
 
 # Freguently Asked Questions
 
