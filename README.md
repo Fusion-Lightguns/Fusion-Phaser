@@ -8,7 +8,7 @@
      
 # Howd you do this? 
 
-     We used SAMCO and Prow7 IR Lightgun repos on github and modified them to make my own version.
+     I used SAMCO and Prow7 IR Lightgun repos on github and modified them to make my own version.
      
      
 # DIY Files
