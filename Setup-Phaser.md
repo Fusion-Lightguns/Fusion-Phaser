@@ -3,7 +3,7 @@
 
 
 
-# LED SEtup for Fusion Phaser
+# LED Setup for Fusion Phaser
 
     With LED setup you have two choices, USB BAR or Loose.
 
@@ -57,6 +57,20 @@
     - Optional: Open serial monitor and update the xCenter, yCenter, xScale, and yScale values in the profile data array in the sketch (no need with step 9).
 
     Calibration can be cancelled during any step by pressing Reload or Start or Select. The gun will return to pause mode if you cancel the calibration.
+    
+# Advanced calibration
+
+    - During center calibration, press A to skip this step and proceed to the vertical calibration
+
+    - During vertical calibration, tap Up or Down to manually fine tune the vertical offset
+
+    -During horizontal calibration, tap Left or Right to manually fine tune the horizontal offset
+
+# Saving Settings
+
+    - The calibration data and profile settings can be saved in non-volatile memory. The currently selected profile is saved as the default for when the light gun is plugged in.
+
+    - For ItsyBitsy M0 and M4 boards the external on-board SPI flash memory is used. For ATmega32U4 the EEPROM is used.
 
 # LED Fine Tuning
 
