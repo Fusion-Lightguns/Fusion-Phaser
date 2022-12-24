@@ -35,6 +35,22 @@
 
      I used SAMCO and Prow7 IR Lightgun repos on github and modified them to make my own version.
      
+# Compatible MicroProcessors
+
+     - Pro Micro
+     
+     - Itsy Bitsy 32u4
+     
+     - Teensy 3.0 (working on it)
+     
+     - Teensy LC (working on it)
+     
+# Compatible MicroProcessors
+
+     - Pi Pico (being a pain but think i found a way)
+     
+     - Will be adding the other boards i got laying around overtime .
+     
      
 # DIY Files
 
