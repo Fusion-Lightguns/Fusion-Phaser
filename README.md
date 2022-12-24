@@ -53,6 +53,10 @@
      - DIY Kits
      
      - Premade Lightguns
+     
+     - Custom PCB for Pro Micro with hookups for everything
+     
+     - New IR Camera based on Wii Mote Camera . Thiers a few out thier same concept.
 
      
 # Button Mapping (subject to change)
