@@ -36,31 +36,27 @@
 
 # Calibration
 
-    - Plug Gun into Pi/PC
+    - Press Reload to enter pause mode.
 
-    - Press calibration on gun
+    - Press a button to select a profile unless you want to calibration the current profile.
 
-    - Shoot Center of screen as accurately as possible
+    - Pull the Trigger to begin calibration.
 
-    - Move gun up/down shoot center of screen
+    - Shoot the pointer at center of the screen and hold the trigger down for 1/3 of a second while keeping a steady aim.
 
-    - Move gun left/right shoot center of screen
+    - The mouse should lock to the vertical axis. Use the A/B buttons (can be held down) to adjust the mouse vertical range. A will increase and B will decrease. Track the pointer at the top and bottom edges of the screen while adjusting. You can also move your gun centered & click trigger again.
 
-    - Shoot to finish
-
-# Advanced Calibration
-
-    - Plug in Fusion Phaser
-
-    - Download this github : COMING SOON
-
-    - Extract somewhere 
+    - Pull the Trigger for horizontal calibration.
     
-    - Open Fusion-Gun-Tool Folder
+    - The mouse should lock to the horizontal axis. Use the A/B buttons (can be held down) to adjust the mouse horizontal range. A will increase and B will decrease. Track the pointer at the left and right edges of the screen while adjusting. You can also move your gun centered & click trigger again.
 
-    - Open Advance-Calibrate.mp4 (MAKE SURE THAT IT FULLSCREEN . YES THE WHOLE SCREEN)
+    - Pull the Trigger to finish and return to run mode. Values will apply to the currently selected profile in memory.
 
-    - Follow Video instructions.
+    - Recommended: After confirming the calibration is good, enter pause mode and press Start and Select to save the calibration to non-volatile memory.
+
+    - Optional: Open serial monitor and update the xCenter, yCenter, xScale, and yScale values in the profile data array in the sketch (no need with step 9).
+
+    Calibration can be cancelled during any step by pressing Reload or Start or Select. The gun will return to pause mode if you cancel the calibration.
 
 # LED Fine Tuning
 
