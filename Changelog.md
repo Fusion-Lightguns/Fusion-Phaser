@@ -58,4 +58,26 @@ Update 12/21/22
 Update 12/23/22
 
     - Found some awesome enchancements we are gonna use. https://github.com/Prow7/ir-light-gun
+    
+# Prow7 Enhancements
+
+     - Increased precision for maths and mouse pointer position
+
+     - Glitch-free DFRobot positioning (DFRobotIRPositionEx library)
+
+     - IR camera sensitivity adjustment (DFRobotIRPositionEx library)
+
+     - Faster IIC clock option for IR camera (DFRobotIRPositionEx library)
+
+     - Optional averaging modes can be enabled to slightly reduce mouse position jitter
+
+     - Enhanced button debouncing and handling (LightgunButtons library)
+
+     - Modified AbsMouse to be a 5 button device (AbsMouse5 library)
+
+     - Multiple calibration profiles
+
+     - Save settings and calibration profiles to flash memory (SAMD) or EEPROM (ATmega32U4)
+
+     - Built in Processing mode for use with the SAMCO Processing sketch
       
