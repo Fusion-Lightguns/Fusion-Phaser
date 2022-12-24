@@ -66,9 +66,10 @@
 
 # Saving Settings
 
-    - The calibration data and profile settings can be saved in non-volatile memory. The currently selected profile is saved as the default for when the light gun is plugged in.
+    - The calibration data and profile settings can be saved in non-volatile memory. 
+      The currently selected profile is saved as the default for when the light gun is plugged in.
 
-    - For ItsyBitsy M0 and M4 boards the external on-board SPI flash memory is used. For ATmega32U4 the EEPROM is used.
+    - For ItsyBitsy M0 and M4 boards the external on-board SPI flash memory is used. For Pro Micro & Teensy the EEPROM is used.
 
 # LED Fine Tuning
 
@@ -87,9 +88,11 @@
 
 # Operation
 
-    - The light gun operates as a mouse until the button/combination is pressed to enter pause mode. The Arduino serial monitor (or any serial terminal) can be used to see information while the gun is paused and during the calibration procedure.
+    - The light gun operates as a mouse until the button/combination is pressed to enter pause mode. 
+      The Arduino serial monitor (or any serial terminal) can be used to see information while the gun is paused and during the calibration procedure.
 
-    - Note that the buttons in pause mode (and to enter pause mode) activate when the last button of the combination releases. This is used to detect and differentiate button combinations vs a single button press.
+    - Note that the buttons in pause mode (and to enter pause mode) activate when the last button of the combination releases. 
+      This is used to detect and differentiate button combinations vs a single button press.
 
     - The mouse position updates at 209Hz so it is extremely responsive.
 
