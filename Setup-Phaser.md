@@ -7,7 +7,7 @@
 
     With LED setup you have two choices, USB BAR or Loose.
 
-    USB Bar use IR LEDs in a usb wii bar.
+    USB Bar use IR LEDs in a usb wii bar. NOT RECOMMENDED FOR LARGE TVS
 
     Loose uses a IR LED Kit or DIY IR LEDS on wires.
 
@@ -25,9 +25,9 @@
 
 # Loose LED Setup 
 
-    - Find middle of TV
-
-    - Put two leds on top of tv and on bottom of tv, equal distance from the middle and edge of TV
+    - PUT LEDs in corners of TV on the top and bottom.
+    
+    - So one LED set bottom left, one bottom right, one top left, & one top right.
 
     - Calibrate gun (see below)
     
@@ -53,8 +53,6 @@
     - Pull the Trigger to finish and return to run mode. Values will apply to the currently selected profile in memory.
 
     - Recommended: After confirming the calibration is good, enter pause mode and press Start and Select to save the calibration to non-volatile memory.
-
-    - Optional: Open serial monitor and update the xCenter, yCenter, xScale, and yScale values in the profile data array in the sketch (no need with step 9).
 
     Calibration can be cancelled during any step by pressing Reload or Start or Select. The gun will return to pause mode if you cancel the calibration.
     
