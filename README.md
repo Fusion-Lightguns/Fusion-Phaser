@@ -4,11 +4,12 @@
      
 # What operating systems Fusion Phaser work on?
 
-     Linux, Windows & Xbox One ( weird but registers fine)
+     Linux & Windows
      
 # Howd you do this? 
 
-     We used SAMCO and Prow7 IR Lightgun repos on github and modified them to maek my own version.
+     We used SAMCO and Prow7 IR Lightgun repos on github and modified them to make my own version.
+     
      
 # DIY Files
 
@@ -58,7 +59,7 @@
      - Stock 
      
      
-# Button Mapping
+# Button Mapping (subject to change)
 
      On The Lightgun---------------Keyboard button
      
