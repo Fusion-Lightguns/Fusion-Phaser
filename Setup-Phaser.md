@@ -64,7 +64,7 @@
 
     - During vertical calibration, tap Up or Down to manually fine tune the vertical offset
 
-    -During horizontal calibration, tap Left or Right to manually fine tune the horizontal offset
+    - During horizontal calibration, tap Left or Right to manually fine tune the horizontal offset
 
 # Saving Settings
 
