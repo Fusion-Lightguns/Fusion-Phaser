@@ -29,3 +29,5 @@
   - Burn to micro processor.
 
   - Thats it follow setup instructions now you got code on board.
+  
+  https://github.com/Fusion-Lightguns/Fusion-Phaser/blob/main/Setup-Phaser.md
