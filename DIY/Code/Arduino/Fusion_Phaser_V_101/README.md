@@ -15,6 +15,12 @@
   - Grab the zip file for your board. Example using a Pro micro, grab Phaser_Pro_Micro.zip
 
   - Extract your zip where your Arduino sketches are . If not sure extract somewhere you can find.
+  
+  - Grab Fusion-Lightguns-Boards.zip
+  
+  - Unzip where arduino has packages 
+
+        example: C:\Users\yourname\AppData\Local\Arduino15\packages
 
   - Open up IDE 
 
