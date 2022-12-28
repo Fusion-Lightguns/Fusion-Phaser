@@ -47,12 +47,6 @@
      
      - Teensy LC (working on it)
      
-# Compatible MicroProcessors
-
-     - Pi Pico (being a pain but think i found a way)
-     
-     - Will be adding the other boards i got laying around overtime .
-     
      
 # DIY Files
 
