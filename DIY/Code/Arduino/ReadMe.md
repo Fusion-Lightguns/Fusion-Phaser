@@ -12,5 +12,5 @@ Steps 2 & 3 are optional.
         
         This will make your gun appear as "Fusion Lightgun" in Windows and Linux
 
-4. See Fusion Phaser V1.01 for your board
+4. See Fusion Phaser (newest version) Folder for your board
 
