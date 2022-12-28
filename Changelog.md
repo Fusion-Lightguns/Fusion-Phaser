@@ -1,6 +1,6 @@
 ## VERSION 1.00 - 1.99
 
-# Update 12/2/22
+#  12/2/22
 
      - Named Fusion Phasers 
 
@@ -16,7 +16,7 @@
      
      - Figured out almost everything needed
      
-# Update 12/10/22
+#  12/10/22
 
      - Started to build a kickstarter for Fusion Phaser 
      
@@ -24,14 +24,14 @@
      
      - Added buttons on each side . 2 buttons on each side plus trigger = 5 buttona in total
      
-# Update 12/10/22
+# 12/10/22
      
           - I cant get Pico Pi to work in Arduino IDE. Porbably gonan switch to Arduino Pro 32u4
           
           - Test gun is almost complete.
           
 
-# Update 12/17/22
+# 12/17/22
 
      - Prototype gun finished printing soooo cool . 
      
@@ -44,7 +44,7 @@
      - Uploaded my ino files to thiss github. WORK IN PROGRESS
      
      
-# Update 12/21/22
+# 12/21/22
 
     - Got a working prototype of Fusion Volt.
     
@@ -56,7 +56,7 @@
     
     - Made more progress on kickstarter . ( Waiting till really ready to launch)
     
-# Update 12/23/22
+# 12/23/22
 
     - Found some awesome enchancements we are gonna use. https://github.com/Prow7/ir-light-gun
     
@@ -83,7 +83,7 @@ Prow7 Enhancements
      - Built in Processing mode for use with the SAMCO Processing sketch
 
 
-# Update 12/27/22
+# 12/27/22
 
      - Changed buttons to make more retropie and gaming freindly.
      
@@ -99,4 +99,5 @@ Prow7 Enhancements
      
      - Nunchuck hooked removed for now . Will have a hand controller custom made with dpad and 2 buttons. 
      
+     - Stable tested first release now on github. Version 1.03
      
