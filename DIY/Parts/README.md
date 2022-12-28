@@ -2,7 +2,11 @@
 
 https://www.dfrobot.com/product-1088.html
 
-Alternative China Camera $40 not advised lol ... but its thier 
+A alternative source for a clone of DFRobot
+
+https://www.gotronic.fr/art-camera-ir-de-positionnement-sen0158-22705.htm
+
+Another Alternative China Camera $40 not advised lol ... but its thier 
 
 https://www.aliexpress.us/item/3256804461379218.html?spm=a2g0o.productlist.0.0.181670c9hzl1R4&algo_pvid=3b04cc07-a595-4382-a31e-faf70648f983&algo_exp_id=3b04cc07-a595-4382-a31e-faf70648f983-21&pdp_ext_f=%7B%22sku_id%22%3A%2212000030655976726%22%7D&pdp_npi=2%40dis%21USD%2182.0%2177.08%21%21%21%21%21%40210318c216721975084025353e8451%2112000030655976726%21sea&curPageLogUid=hUZHn1zMlQXJ
 
