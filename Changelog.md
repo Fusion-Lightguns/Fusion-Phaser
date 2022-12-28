@@ -1,5 +1,6 @@
+## VERSION 1.00 - 1.99
 
-Update 12/2/22
+# Update 12/2/22
 
      - Named Fusion Phasers 
 
@@ -15,7 +16,7 @@ Update 12/2/22
      
      - Figured out almost everything needed
      
-Update 12/10/22
+# Update 12/10/22
 
      - Started to build a kickstarter for Fusion Phaser 
      
@@ -23,14 +24,14 @@ Update 12/10/22
      
      - Added buttons on each side . 2 buttons on each side plus trigger = 5 buttona in total
      
-Update 12/10/22
+# Update 12/10/22
      
           - I cant get Pico Pi to work in Arduino IDE. Porbably gonan switch to Arduino Pro 32u4
           
           - Test gun is almost complete.
           
 
-Update 12/17/22
+# Update 12/17/22
 
      - Prototype gun finished printing soooo cool . 
      
@@ -43,7 +44,7 @@ Update 12/17/22
      - Uploaded my ino files to thiss github. WORK IN PROGRESS
      
      
-Update 12/21/22
+# Update 12/21/22
 
     - Got a working prototype of Fusion Volt.
     
@@ -55,11 +56,11 @@ Update 12/21/22
     
     - Made more progress on kickstarter . ( Waiting till really ready to launch)
     
-Update 12/23/22
+# Update 12/23/22
 
     - Found some awesome enchancements we are gonna use. https://github.com/Prow7/ir-light-gun
     
-# Prow7 Enhancements
+Prow7 Enhancements
 
      - Increased precision for maths and mouse pointer position
 
@@ -78,15 +79,24 @@ Update 12/23/22
      - Multiple calibration profiles
 
      - Save settings and calibration profiles to flash memory (SAMD) or EEPROM (ATmega32U4)
+     
+     - Built in Processing mode for use with the SAMCO Processing sketch
 
-Update 12/27/22
+
+# Update 12/27/22
 
      - Changed buttons to make more retropie and gaming freindly.
      
      - Escape, Enter, F4, & Alt mapped now. Instead of extra mouse buttons. 
      
-     - Renamed Reload to Calibrate in code.
+     - Renamed Reload to Calibrate in Code.
      
      - Renamed Pedal to Reload in Code.
-     - Built in Processing mode for use with the SAMCO Processing sketch
-      
+     
+     - Tested on two pro micro same time worked fine 
+     
+     - Figured out how to make leonardo appear as Fusion Phaser.
+     
+     - Nunchuck hooked removed for now . Will have a hand controller custom made with dpad and 2 buttons. 
+     
+     
