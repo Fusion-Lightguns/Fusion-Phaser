@@ -30,6 +30,8 @@
      - Trigger pull and power LED
      
      - Built with Linux/RetroPie in mind . ( Making Setup Scripts)
+     
+     - Best button Layout I could figure out for gaming.
 
 # Howd you do this? 
 
@@ -81,11 +83,11 @@
      
      - Trigger ----------------------- Mouse 1
 
-     - Left side of gun button1 ------ Mouse 3 ( if no slide Mouse 2)
+     - Left side of gun button1 ------ F4 ( if no slide Mouse 2)
 
      - Left side of gun button2 ------ Escape
 
-     - Right side of gun button1 ----- Mouse 3
+     - Right side of gun button1 ----- Alt
 
      - Right side of gun button2 ----- Enter
       
