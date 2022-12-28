@@ -1,6 +1,6 @@
 ## VERSION 1.00 - 1.99
 
-#  12/2/22
+#  Version 1.00 12/2/22
 
      - Named Fusion Phasers 
 
@@ -44,7 +44,7 @@
      - Uploaded my ino files to thiss github. WORK IN PROGRESS
      
      
-# 12/21/22
+# Version 1.02 12/21/22
 
     - Got a working prototype of Fusion Volt.
     
@@ -56,7 +56,7 @@
     
     - Made more progress on kickstarter . ( Waiting till really ready to launch)
     
-# 12/23/22
+# Version 1.03 12/23/22
 
     - Found some awesome enchancements we are gonna use. https://github.com/Prow7/ir-light-gun
     
@@ -99,5 +99,5 @@ Prow7 Enhancements
      
      - Nunchuck hooked removed for now . Will have a hand controller custom made with dpad and 2 buttons. 
      
-     - Stable tested first release now on github. Version 1.03
+     - Stable tested first release now on github.
      
