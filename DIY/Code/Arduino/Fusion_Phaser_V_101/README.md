@@ -15,6 +15,8 @@
   - Grab the zip file for your board. Example using a Pro micro, grab Phaser_Pro_Micro.zip
 
   - Extract your zip where your Arduino sketches are . If not sure extract somewhere you can find.
+  
+  - Move Pin-Button-Layout.txt somewhere you remeber
 
   - Open up IDE 
 
@@ -27,6 +29,8 @@
   - Verify code is gonna do you good.
 
   - Burn to micro processor.
+  
+  - See Pin-Button-Layout.txt to attch everything to your board.
 
   - Thats it follow setup instructions now you got code on board.
   
