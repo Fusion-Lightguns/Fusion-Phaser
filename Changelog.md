@@ -79,5 +79,14 @@ Update 12/23/22
 
      - Save settings and calibration profiles to flash memory (SAMD) or EEPROM (ATmega32U4)
 
+Update 12/27/22
+
+     - Changed buttons to make more retropie and gaming freindly.
+     
+     - Escape, Enter, F4, & Alt mapped now. Instead of extra mouse buttons. 
+     
+     - Renamed Reload to Calibrate in code.
+     
+     - Renamed Pedal to Reload in Code.
      - Built in Processing mode for use with the SAMCO Processing sketch
       
