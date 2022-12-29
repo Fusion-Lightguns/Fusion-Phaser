@@ -41,7 +41,7 @@ https://www.aliexpress.us/item/3256804336848130.html?spm=a2g0o.productlist.0.0.1
 https://amzn.to/3iOo7Ui
 
 
-# Micro Processors
+# Micro Controllers
 
 Make sure to flash the firmware for your choosen board. 
 
