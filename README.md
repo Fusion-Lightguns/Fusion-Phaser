@@ -72,20 +72,19 @@
 
      
 # Button Mapping (subject to change)
-
-     On The Lightgun---------------Keyboard button
-     
-     - Trigger ----------------------- Mouse 1
-
-     - Left side of gun button1 ------ F4 ( if no slide Mouse 2)
-
-     - Left side of gun button2 ------ Escape
-
-     - Right side of gun button1 ----- Alt
-
-     - Right side of gun button2 ----- Enter
+ On The Lightgun (In Code)-------------Keyboard button
+ 
+ - Trigger ----------------------------Mouse 1
+ 
+ - L Side Button 1 (Start) -------------Alt (mouse 2 if no slide)
+ 
+ - L Side Button 2 (Select) ------------F4
+ 
+ - R Side Button 1 (A Key) -------------Return
+ 
+ - R Side Button 2 (B Key) -------------Escape
       
-     - Slide grip -------------------- Mouse 2 (in the works)
+ - Slide grip -------------------- Mouse 2 (in the works)
 
 # Freguently Asked Questions
 
