@@ -90,7 +90,7 @@
 
      - Do I need different code for different type?
         
-          No code applys to all types. different types have things plug into different spots.
+          No code applys to Phaser & Phaser Pro. Different types have things plug into different spots.
           
      - Can I buy it premade?
      
