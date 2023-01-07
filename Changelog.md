@@ -100,3 +100,15 @@ Prow7 Enhancements
      
      - Stable tested first release now on github.
      
+# 1/7/22
+
+     - Removed left & right on dpad
+     
+     - Added Joystick to code
+     
+     - Made code simplier
+     
+     - Added a X & Y button. 
+     
+     
+     
