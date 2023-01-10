@@ -9,25 +9,26 @@ Arduino IDE.
 A cable to hook processor to pc.
 
 Insturctions for use
-Grab the zip file for your board. Example using a Pro micro, grab FusionPhaser_ProMicro.zip
 
-Extract your zip where your Arduino sketches are . If not sure extract somewhere you can find.
+  - Grab the zip file for your board. Example using a Pro micro, grab FusionPhaser_ProMicro.zip
 
-Move Pin-Button-Layout.txt somewhere you remeber
+  - Extract your zip where your Arduino sketches are . If not sure extract somewhere you can find.
 
-Open up IDE
+  - Move Pin-Button-Layout.txt somewhere you remeber
 
-Open the .ino file in IDE . Example open FusionPhaser_ProMicro.ino
+  - Open up IDE
 
-Plug in your processor.
+  - Open the .ino file in IDE . Example open FusionPhaser_ProMicro.ino
 
-Select port and board in IDE .
+  - Plug in your processor.
 
-Verify code is gonna do you good.
+  - Select port and board in IDE .
 
-Burn to micro processor.
+  - Verify code is gonna do you good.
 
-See Pin-Button-Layout.txt to attch everything to your board.
+  - Burn to micro processor.
+
+  - See Pin-Button-Layout.txt to attch everything to your board.
 
 Thats it follow setup instructions now you got code on board.
 
