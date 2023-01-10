@@ -9,7 +9,7 @@ Arduino IDE.
 A cable to hook processor to pc.
 
 Insturctions for use
-Grab the zip file for your board. Example using a Pro micro, grab Phaser_Pro_Micro.zip
+Grab the zip file for your board. Example using a Pro micro, grab FusionPhaser_ProMicro.zip
 
 Extract your zip where your Arduino sketches are . If not sure extract somewhere you can find.
 
@@ -17,7 +17,7 @@ Move Pin-Button-Layout.txt somewhere you remeber
 
 Open up IDE
 
-Open the .ino file in IDE . Example open Phaser_Pro_Micro.ino
+Open the .ino file in IDE . Example open FusionPhaser_ProMicro.ino
 
 Plug in your processor.
 
