@@ -1,6 +1,8 @@
 DIY Code for Fusion Phaser
+
 You will need
-A microprocessor. Examples Pro Micro & Itsy Bitsy
+
+A Pro Micro
 
 A PC or computer to use IDE on.
 
