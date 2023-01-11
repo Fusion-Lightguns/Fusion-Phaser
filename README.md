@@ -41,11 +41,8 @@
 
      - Pro Micro
      
-     - Itsy Bitsy 32u4
+     - Itsy Bitsy 32u4 (gotta code it up)
      
-     - Teensy 3.0 (working on it)
-     
-     - Teensy LC (working on it)
      
      
 # DIY Files
@@ -60,7 +57,7 @@
 
 # Current Planned For The Future
 
-     - Removable Foregrip and Stock
+     - Removable Stock
      
      - DIY Kits
      
@@ -84,11 +81,13 @@
  
  - R Side Button 2 (B Key) -------------Escape
       
- - Slide grip -------------------- Mouse 2 (in the works)
+ - Slide grip (Reload) -------------------- Mouse 2 (in the works)
+ 
+ - Calibrate (Calibrate) --------------------- Mouse 4 
 
 # Freguently Asked Questions
 
-     - Do I need different code for different type?
+     - Do I need different code for different type? or for more/less buttons?
         
           No code applys to Phaser & Phaser Pro. Different types have things plug into different spots.
           
