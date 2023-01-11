@@ -99,16 +99,17 @@ Prow7 Enhancements
      - Nunchuck hooked removed for now . Will have a hand controller custom made with dpad and 2 buttons. 
      
      - Stable tested first release now on github.
-     
-# 1/7/22
 
-     - Removed left & right on dpad
+# Version 1.10 1/10/22
+
+     - Removed dpad from code
      
      - Added Joystick to code
      
      - Made code simplier
      
-     - Added a X & Y button. 
+     - Added  X, Hotkey, Y, and Coin buttons to code 
      
+     - Finalized button mapping
      
      
