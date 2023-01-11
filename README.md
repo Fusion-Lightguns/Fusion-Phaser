@@ -14,9 +14,7 @@
      - Easy calibration 
      
      - 7 Buttons on gun
-     
-     - Hand controller hookup
-     
+          
      - Open source with DIY instructions & Files. Wanna build yourself do it lol .
      
      - Made by gamers for gamers.
@@ -24,12 +22,14 @@
      - 2 different versions of lightgun.
      
         Fusion Phaser & Fusion Phaser Pro
-     
-     - Hand controller port,  if you need a dpad and two more buttons .
- 
+      
      - Trigger pull and power LED
      
+     - Joystick on gun for games selection
+     
      - Built with Linux/RetroPie in mind . ( Making Setup Scripts)
+     
+     - Tons of buttons in code if you want add or mod a new gun
      
      - Best button Layout I could figure out for gaming.
 
@@ -68,22 +68,23 @@
      - New IR Camera based on Wii Mote Camera . Thiers a few out thier same concept.
 
      
-# Button Mapping (subject to change)
+# Button Mapping
+
  On The Lightgun (In Code)-------------Keyboard button
  
- - Trigger ----------------------------Mouse 1
+     - Trigger ----------------------------Mouse 1
  
- - L Side Button 1 (Start) -------------Alt (mouse 2 if no slide)
+     - L Side Button 1 (Start) ------------- Left Alt (mouse 2 if no slide)
  
- - L Side Button 2 (Select) ------------F4
+     - L Side Button 2 (Select) ------------ F4
  
- - R Side Button 1 (A Key) -------------Return
+     - R Side Button 1 (A Key) ------------- Tab
  
- - R Side Button 2 (B Key) -------------Escape
+     - R Side Button 2 (B Key) ------------- Escape
       
- - Slide grip (Reload) -------------------- Mouse 2 (in the works)
+     - Slide grip (Reload) ----------------- Mouse 2 (in the works)
  
- - Calibrate (Calibrate) --------------------- Mouse 4 
+     - Calibrate (Calibrate) --------------------- Mouse 4 
 
 # Freguently Asked Questions
 
